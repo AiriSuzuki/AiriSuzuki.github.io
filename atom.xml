@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Airi Suzuki</title>
+  
+  <subtitle>我命如妖，我性本寂</subtitle>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2021-03-04T07:42:08.925Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>妖寂</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你好 CODING</title>
+    <link href="http://yoursite.com/2021/03/04/hello-world/"/>
+    <id>http://yoursite.com/2021/03/04/hello-world/</id>
+    <published>2021-03-04T07:42:08.925Z</published>
+    <updated>2021-03-04T07:42:08.925Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;欢迎使用 &lt;a href=&quot;https://help.coding.net/docs/cd/static-website-v2.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CODING DevOps 静态网站&lt;/a&gt; 部署 &lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

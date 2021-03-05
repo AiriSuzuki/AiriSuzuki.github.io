@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>你好 CODING</title>
+      <link href="2021/03/04/hello-world/"/>
+      <url>2021/03/04/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>欢迎使用 <a href="https://help.coding.net/docs/cd/static-website-v2.html" target="_blank" rel="noopener">CODING DevOps 静态网站</a> 部署 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 应用！<br>您可以到这里查看更多的 Hexo 的 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档</a>。</p><p>这是你的第一篇文章。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>相关帮助: <a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="noopener">写作</a></p><h3 id="本地运行"><a href="#本地运行" class="headerlink" title="本地运行"></a>本地运行</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>相关帮助: <a href="https://hexo.io/zh-cn/docs/server.html" target="_blank" rel="noopener">服务器</a></p><h3 id="部署到线上"><a href="#部署到线上" class="headerlink" title="部署到线上"></a>部署到线上</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> add <span class="token keyword">.</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> commit -m <span class="token string">'new post'</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> push</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
