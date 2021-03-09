@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-04T07:42:08.925Z</updated>
+  <updated>2021-03-09T12:35:21.898Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于MATOLOTLIB模块的绘图</title>
+    <link href="http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/"/>
+    <id>http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/</id>
+    <published>2021-03-09T12:10:16.711Z</published>
+    <updated>2021-03-09T12:35:21.898Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Matplotlib是一套面向对象的绘图库，其绘制的图表中的每个绘图元素（例如线条、文字、刻度等）都是对象&lt;/p&gt;
+&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>你好 CODING</title>

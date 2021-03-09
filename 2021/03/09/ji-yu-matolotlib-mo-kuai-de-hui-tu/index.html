@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="你好 CODING, Airi Suzuki">
+    <meta name="keywords" content="基于MATOLOTLIB模块的绘图, Airi Suzuki">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>你好 CODING | Airi Suzuki</title>
+    <title>基于MATOLOTLIB模块的绘图 | Airi Suzuki</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">你好 CODING</h1>
+                    <h1 class="description center-align post-title">基于MATOLOTLIB模块的绘图</h1>
                 </div>
             </div>
         </div>
@@ -448,7 +448,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-04
+                    2021-03-09
                 </div>
                 
 
@@ -469,13 +469,59 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>欢迎使用 <a href="https://help.coding.net/docs/cd/static-website-v2.html" target="_blank" rel="noopener">CODING DevOps 静态网站</a> 部署 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 应用！<br>您可以到这里查看更多的 Hexo 的 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档</a>。</p>
-<p>这是你的第一篇文章。</p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
-<p>相关帮助: <a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="noopener">写作</a></p>
-<h3 id="本地运行"><a href="#本地运行" class="headerlink" title="本地运行"></a>本地运行</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre>
-<p>相关帮助: <a href="https://hexo.io/zh-cn/docs/server.html" target="_blank" rel="noopener">服务器</a></p>
-<h3 id="部署到线上"><a href="#部署到线上" class="headerlink" title="部署到线上"></a>部署到线上</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> add <span class="token keyword">.</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> commit -m <span class="token string">'new post'</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> push</code></pre>
+                <p>Matplotlib是一套面向对象的绘图库，其绘制的图表中的每个绘图元素（例如线条、文字、刻度等）都是对象</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#绘制x轴坐标值为0、1、2、3、4，所对应的y轴坐标值为1、2、5、6、8的折线图</span>
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'some numbers'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><img src="https://www.hualigs.cn/image/60476819d3dd7.jpg" alt=""></p>
+<p>plot()函数</p>
+<ul>
+<li>plot(x,y,’bo’)    #用蓝色，小圆点标记</li>
+</ul>
+<ul>
+<li>plot(y)    #改变纵轴坐标数值，横轴默认0,1,2……</li>
+</ul>
+<ul>
+<li>plot(x1,y1,’g^’,x2,y2,’g-o’)    #使用多个x,y,format对作变量，把它们画在一个图里，格式串也可改为color=’green’,linestyle=’dashen’,marker=’o’。</li>
+</ul>
+<p>subplot(numRows,numCols,plotNum)快速绘制包含多个子图的图表，左上的子区域的编号为1，若numRows, numCols和plotNum这三个数都小于10的话，可缩写为一个整数，例如subplot(323)等价于subplot(3,2,3)，subplot在plotNum指定的区域中创建一个轴对象。</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用Matplotlib模块绘制y=sin(x)的函数曲线</span>
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> math
+x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>math<span class="token punctuation">.</span>pi<span class="token operator">*</span>i<span class="token operator">/</span><span class="token number">100</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+y<span class="token operator">=</span><span class="token punctuation">[</span>math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> x<span class="token punctuation">]</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><img src="https://www.hualigs.cn/image/604764dc6bfb2.jpg" alt=""></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#利用NumPy模块和Matplotlib.pyplot工具包绘制y=e^-x*cos(2*pi*x)以及y=cos(2*pi*x)的函数曲线</span>
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np 
+<span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> np<span class="token punctuation">.</span>exp<span class="token punctuation">(</span><span class="token operator">-</span>t<span class="token punctuation">)</span><span class="token operator">*</span>np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token operator">*</span>t<span class="token punctuation">)</span>
+t1<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+t2<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">0.02</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token number">211</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>t1<span class="token punctuation">,</span>f<span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'bo'</span><span class="token punctuation">,</span>t2<span class="token punctuation">,</span>f<span class="token punctuation">(</span>t2<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'k'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token number">212</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>t2<span class="token punctuation">,</span>np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token operator">*</span>t2<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'r--'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><img src="https://www.hualigs.cn/image/604764dc3b957.jpg" alt=""></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#随机生成满足mu为100、sigma为20的正态分布数据，并绘制其直方图</span>
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np 
+mu<span class="token punctuation">,</span>sigma<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">20</span>
+x<span class="token operator">=</span>mu<span class="token operator">+</span>sigma<span class="token operator">*</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span>density<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>facecolor<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">,</span>alpha<span class="token operator">=</span><span class="token number">0.75</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#绘制直方图</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'IQ'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#绘制坐标等信息</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Probability'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Histogram of IQ'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">180</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.03</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#设置坐标和网格</span>
+plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><img src="https://www.hualigs.cn/image/604764dc6e394.jpg" alt=""><br>                                      ​<br>3/9/2021 8:23:59 PM </p>
 
                 
             </div>
@@ -502,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2021/03/04/hello-world/">http://yoursite.com/2021/03/04/hello-world/</a>
+                    <a href="http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/">http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -709,9 +755,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/">
                     <div class="card-image">
@@ -729,9 +776,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -740,6 +787,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -747,7 +795,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/03/04/hello-world/">
@@ -777,7 +825,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
