@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="基于MATOLOTLIB模块的绘图, Airi Suzuki">
+    <meta name="keywords" content="数值、日期和时间处理, Airi Suzuki">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>基于MATOLOTLIB模块的绘图 | Airi Suzuki</title>
+    <title>数值、日期和时间处理 | Airi Suzuki</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,7 +320,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">基于MATOLOTLIB模块的绘图</h1>
+                    <h1 class="description center-align post-title">数值、日期和时间处理</h1>
                 </div>
             </div>
         </div>
@@ -448,7 +448,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-09
+                    2021-03-10
                 </div>
                 
 
@@ -469,59 +469,85 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Matplotlib是一套面向对象的绘图库，其绘制的图表中的每个绘图元素（例如线条、文字、刻度等）都是对象</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#绘制x轴坐标值为0、1、2、3、4，所对应的y轴坐标值为1、2、5、6、8的折线图</span>
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'some numbers'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://www.hualigs.cn/image/60476819d3dd7.jpg" alt=""></p>
-<p>plot()函数</p>
-<ul>
-<li>plot(x,y,’bo’)    #用蓝色，小圆点标记</li>
+                <h1 id="1、相关模块概述"><a href="#1、相关模块概述" class="headerlink" title="1、相关模块概述"></a>1、相关模块概述</h1><h2 id="1-数值处理的相关模块"><a href="#1-数值处理的相关模块" class="headerlink" title="1.数值处理的相关模块"></a>1.数值处理的相关模块</h2><h3 id="（1）Python标准款中包括下列数值处理相关模块"><a href="#（1）Python标准款中包括下列数值处理相关模块" class="headerlink" title="（1）Python标准款中包括下列数值处理相关模块"></a>（1）Python标准款中包括下列数值处理相关模块</h3><ul>
+<li>numbers模块：数值抽象类。包含类Complex、Real、Rational、Integral。</li>
+<li>math模块：数学函数</li>
+<li>cmath模块：复数运算数学函数</li>
+<li>decimal模块：高精度数值运算</li>
+<li>fractions模块：分数运算模块</li>
+<li>random模块：随机数模块<br><img src="https://www.hualigs.cn/image/6048d9b722e3a.jpg" alt=""></li>
 </ul>
-<ul>
-<li>plot(y)    #改变纵轴坐标数值，横轴默认0,1,2……</li>
-</ul>
-<ul>
-<li>plot(x1,y1,’g^’,x2,y2,’g-o’)    #使用多个x,y,format对作变量，把它们画在一个图里，格式串也可改为color=’green’,linestyle=’dashen’,marker=’o’。</li>
-</ul>
-<p>subplot(numRows,numCols,plotNum)快速绘制包含多个子图的图表，左上的子区域的编号为1，若numRows, numCols和plotNum这三个数都小于10的话，可缩写为一个整数，例如subplot(323)等价于subplot(3,2,3)，subplot在plotNum指定的区域中创建一个轴对象。</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用Matplotlib模块绘制y=sin(x)的函数曲线</span>
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<h3 id="（2）数值运算模块Numpy。"><a href="#（2）数值运算模块Numpy。" class="headerlink" title="（2）数值运算模块Numpy。"></a>（2）数值运算模块Numpy。</h3><p>Numpy模块主要提供数组和矩阵处理功能，还包括高级功能，如傅里叶变换等。</p>
+<h3 id="（3）科学计算模块SciPy。"><a href="#（3）科学计算模块SciPy。" class="headerlink" title="（3）科学计算模块SciPy。"></a>（3）科学计算模块SciPy。</h3><p>SciPy模块包括统计、优化、整合、线性代数、傅里叶变换、信号和图像处理、常微分方程求解器等功能。</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#random应用</span>
+<span class="token comment" spellcheck="true">#随机生成扑克牌的四手牌（4个人的牌局，每手牌13张）</span>
+<span class="token keyword">import</span> random
+<span class="token comment" spellcheck="true">#一副牌：Club（梅花）、Diamond（方块）、Heart（红桃）、Spade（黑桃）</span>
+cards<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'2C'</span><span class="token punctuation">,</span><span class="token string">'3C'</span><span class="token punctuation">,</span><span class="token string">'4C'</span><span class="token punctuation">,</span><span class="token string">'5C'</span><span class="token punctuation">,</span><span class="token string">'6C'</span><span class="token punctuation">,</span><span class="token string">'7C'</span><span class="token punctuation">,</span><span class="token string">'8C'</span><span class="token punctuation">,</span><span class="token string">'9C'</span><span class="token punctuation">,</span><span class="token string">'10C'</span><span class="token punctuation">,</span><span class="token string">'JC'</span><span class="token punctuation">,</span><span class="token string">'QC'</span><span class="token punctuation">,</span><span class="token string">'KC'</span><span class="token punctuation">,</span><span class="token string">'AC'</span><span class="token punctuation">,</span>
+       <span class="token string">'2D'</span><span class="token punctuation">,</span><span class="token string">'3C'</span><span class="token punctuation">,</span><span class="token string">'4D'</span><span class="token punctuation">,</span><span class="token string">'5D'</span><span class="token punctuation">,</span><span class="token string">'6D'</span><span class="token punctuation">,</span><span class="token string">'7D'</span><span class="token punctuation">,</span><span class="token string">'8D'</span><span class="token punctuation">,</span><span class="token string">'9D'</span><span class="token punctuation">,</span><span class="token string">'10D'</span><span class="token punctuation">,</span><span class="token string">'JD'</span><span class="token punctuation">,</span><span class="token string">'QD'</span><span class="token punctuation">,</span><span class="token string">'KD'</span><span class="token punctuation">,</span><span class="token string">'AD'</span><span class="token punctuation">,</span>
+       <span class="token string">'2H'</span><span class="token punctuation">,</span><span class="token string">'3H'</span><span class="token punctuation">,</span><span class="token string">'4H'</span><span class="token punctuation">,</span><span class="token string">'5H'</span><span class="token punctuation">,</span><span class="token string">'6H'</span><span class="token punctuation">,</span><span class="token string">'7H'</span><span class="token punctuation">,</span><span class="token string">'8H'</span><span class="token punctuation">,</span><span class="token string">'9H'</span><span class="token punctuation">,</span><span class="token string">'10H'</span><span class="token punctuation">,</span><span class="token string">'JH'</span><span class="token punctuation">,</span><span class="token string">'QH'</span><span class="token punctuation">,</span><span class="token string">'KH'</span><span class="token punctuation">,</span><span class="token string">'AH'</span><span class="token punctuation">,</span>
+       <span class="token string">'2S'</span><span class="token punctuation">,</span><span class="token string">'3S'</span><span class="token punctuation">,</span><span class="token string">'4S'</span><span class="token punctuation">,</span><span class="token string">'5S'</span><span class="token punctuation">,</span><span class="token string">'6S'</span><span class="token punctuation">,</span><span class="token string">'7S'</span><span class="token punctuation">,</span><span class="token string">'8S'</span><span class="token punctuation">,</span><span class="token string">'9S'</span><span class="token punctuation">,</span><span class="token string">'10S'</span><span class="token punctuation">,</span><span class="token string">'JS'</span><span class="token punctuation">,</span><span class="token string">'QS'</span><span class="token punctuation">,</span><span class="token string">'KS'</span><span class="token punctuation">,</span><span class="token string">'AS'</span><span class="token punctuation">]</span>
+random<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>cards<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#混排，洗牌</span>
+deck1<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>deck2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>deck3<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>deck4<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#初始化四手牌</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#发牌</span>
+    deck1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cards<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    deck2<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cards<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    deck3<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cards<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    deck4<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cards<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>deck1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>deck2<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>deck3<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>deck4<span class="token punctuation">)</span>       </code></pre>
+<h2 id="2-数值运算模块NUMPY"><a href="#2-数值运算模块NUMPY" class="headerlink" title="2.数值运算模块NUMPY"></a>2.数值运算模块NUMPY</h2><h3 id="（1）创建数组"><a href="#（1）创建数组" class="headerlink" title="（1）创建数组"></a>（1）创建数组</h3><p>（1）通过array函数，把序列对象参数转化为数组</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+a<span class="token operator">=</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+b<span class="token operator">=</span>mp<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>（2）通过arrange、linspace和logspace函数创建数组</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+a<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#从start到stop，2为步长</span>
+b<span class="token operator">=</span>np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#从0到2pi，创建长度为10的等差数列数组</span>
+c<span class="token operator">=</span>np<span class="token punctuation">.</span>logspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#等比数列</span></code></pre>
+<p><img src="https://www.hualigs.cn/image/6048d9b14717c.jpg" alt=""></p>
+<h3 id="（2）数组应用"><a href="#（2）数组应用" class="headerlink" title="（2）数组应用"></a>（2）数组应用</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#绘制正弦余弦函数图形</span>
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np 
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt 
 <span class="token keyword">import</span> math
-x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>math<span class="token punctuation">.</span>pi<span class="token operator">*</span>i<span class="token operator">/</span><span class="token number">100</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-y<span class="token operator">=</span><span class="token punctuation">[</span>math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> x<span class="token punctuation">]</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+x<span class="token operator">=</span>np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+y1<span class="token operator">=</span>np<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+y2<span class="token operator">=</span>np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y1<span class="token punctuation">,</span>x<span class="token punctuation">,</span>y2<span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://www.hualigs.cn/image/604764dc6bfb2.jpg" alt=""></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#利用NumPy模块和Matplotlib.pyplot工具包绘制y=e^-x*cos(2*pi*x)以及y=cos(2*pi*x)的函数曲线</span>
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np 
-<span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> np<span class="token punctuation">.</span>exp<span class="token punctuation">(</span><span class="token operator">-</span>t<span class="token punctuation">)</span><span class="token operator">*</span>np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token operator">*</span>t<span class="token punctuation">)</span>
-t1<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">0.1</span><span class="token punctuation">)</span>
-t2<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">0.02</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token number">211</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>t1<span class="token punctuation">,</span>f<span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'bo'</span><span class="token punctuation">,</span>t2<span class="token punctuation">,</span>f<span class="token punctuation">(</span>t2<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'k'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token number">212</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>t2<span class="token punctuation">,</span>np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token operator">*</span>t2<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'r--'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://www.hualigs.cn/image/604764dc3b957.jpg" alt=""></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#随机生成满足mu为100、sigma为20的正态分布数据，并绘制其直方图</span>
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np 
-mu<span class="token punctuation">,</span>sigma<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">20</span>
-x<span class="token operator">=</span>mu<span class="token operator">+</span>sigma<span class="token operator">*</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span>density<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>facecolor<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">,</span>alpha<span class="token operator">=</span><span class="token number">0.75</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#绘制直方图</span>
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'IQ'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#绘制坐标等信息</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Probability'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Histogram of IQ'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">180</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.03</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#设置坐标和网格</span>
-plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://www.hualigs.cn/image/604764dc6e394.jpg" alt=""><br>                                      ​<br>3/9/2021 8:23:59 PM </p>
+<p><img src="https://www.hualigs.cn/image/6048d9b12e910.jpg" alt="">                                       </p>
+<h1 id="2、日期和时间处理概述"><a href="#2、日期和时间处理概述" class="headerlink" title="2、日期和时间处理概述"></a>2、日期和时间处理概述</h1><ul>
+<li><p>datetime模块：日期和时间类</p>
+</li>
+<li><p>calendar模块：日历函数和类</p>
+</li>
+<li><p>time模块：时间函数</p>
+<h2 id="1-DATETIME模块"><a href="#1-DATETIME模块" class="headerlink" title="1.DATETIME模块"></a>1.DATETIME模块</h2></li>
+<li><p>两个常量：datetime.MINTEAR(1)和datetime.MAXYEAR(9999)</p>
+</li>
+<li><p>获取当前日期时间<br>  通过datetime模块的date.today()函数可以返回表示当前日期的date对象，通过其实例对象方法，可以获取其年、月、日等信息</p>
+<p>  通过datime模块的datetime.now()函数可以返回表示当前日期时间的datetime对象，通过其实例对象方法，可以获取其年、月、日、时、分、秒等信息</p>
+<h2 id="2-time模块"><a href="#2-time模块" class="headerlink" title="2.time模块"></a>2.time模块</h2></li>
+<li><p>time模块中的strftime()函数将struct_time对象格式化为字符串</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#日期时间格式化为字符串示例</span>
+<span class="token keyword">from</span> time <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>strftime<span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>strftime<span class="token punctuation">(</span><span class="token string">'%Y{y}%m{m}%d{d}%H{h}%M{f}%S{s}'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>y<span class="token operator">=</span><span class="token string">'年'</span><span class="token punctuation">,</span>m<span class="token operator">=</span><span class="token string">'月'</span><span class="token punctuation">,</span>d<span class="token operator">=</span><span class="token string">'日'</span><span class="token punctuation">,</span>h<span class="token operator">=</span><span class="token string">'时'</span><span class="token punctuation">,</span>f<span class="token operator">=</span><span class="token string">'分'</span><span class="token punctuation">,</span>s<span class="token operator">=</span><span class="token string">'秒'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+</li>
+<li><p>time模块中的strptime()函数将时间字符串解析为struct_time对象</p>
+</li>
+</ul>
+<h1 id="3、字符串和文本处理的相关模块"><a href="#3、字符串和文本处理的相关模块" class="headerlink" title="3、字符串和文本处理的相关模块"></a>3、字符串和文本处理的相关模块</h1><ul>
+<li>string模块：包含若干字符集常量，其处理字符串的函数已经被字符串对象的方法替代</li>
+<li>re模块：正则表达式处理</li>
+<li>codecs模块：字符编码处理</li>
+<li>difflib模块：比较字符串列表的差异</li>
+<li>gettext模块：语言国际化</li>
+<li>textwrap模块：格式化文本段落</li>
+<li>unicodedata模块：Unicode字符库<br>3/10/2021 10:56:22 PM </li>
+</ul>
 
                 
             </div>
@@ -548,7 +574,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/">http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/</a>
+                    <a href="http://yoursite.com/2021/03/10/shu-zhi-ri-qi-he-shi-jian-chu-li/">http://yoursite.com/2021/03/10/shu-zhi-ri-qi-he-shi-jian-chu-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -759,13 +785,13 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/10/shu-zhi-ri-qi-he-shi-jian-chu-li/">
+                <a href="/2021/03/10/python-shu-ju-ku-fang-wen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="数值、日期和时间处理">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="PYTHON数据库访问">
                         
-                        <span class="card-title">数值、日期和时间处理</span>
+                        <span class="card-title">PYTHON数据库访问</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -796,13 +822,13 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/04/hello-world/">
+                <a href="/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="你好 CODING">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="基于MATOLOTLIB模块的绘图">
                         
-                        <span class="card-title">你好 CODING</span>
+                        <span class="card-title">基于MATOLOTLIB模块的绘图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -813,7 +839,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
                             </span>
                         <span class="publish-author">
                             
