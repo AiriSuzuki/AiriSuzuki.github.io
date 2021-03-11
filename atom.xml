@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-10T15:16:13.603Z</updated>
+  <updated>2021-03-11T15:54:11.206Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python网络编程和通信</title>
+    <link href="http://yoursite.com/2021/03/11/python-wang-luo-bian-cheng-he-tong-xin/"/>
+    <id>http://yoursite.com/2021/03/11/python-wang-luo-bian-cheng-he-tong-xin/</id>
+    <published>2021-03-11T15:52:13.777Z</published>
+    <updated>2021-03-11T15:54:11.206Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、基于SOCKET的网络编程&quot;&gt;&lt;a href=&quot;#一、基于SOCKET的网络编程&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>PYTHON数据库访问</title>
     <link href="http://yoursite.com/2021/03/10/python-shu-ju-ku-fang-wen/"/>
     <id>http://yoursite.com/2021/03/10/python-shu-ju-ku-fang-wen/</id>
     <published>2021-03-10T15:07:18.986Z</published>
-    <updated>2021-03-10T15:16:13.603Z</updated>
+    <updated>2021-03-10T15:31:39.975Z</updated>
     
     
       
