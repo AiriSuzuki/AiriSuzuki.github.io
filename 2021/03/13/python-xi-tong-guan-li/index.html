@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="基于MATOLOTLIB模块的绘图, Airi Suzuki">
+    <meta name="keywords" content="Python系统管理, Airi Suzuki">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>基于MATOLOTLIB模块的绘图 | Airi Suzuki</title>
+    <title>Python系统管理 | Airi Suzuki</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">基于MATOLOTLIB模块的绘图</h1>
+                    <h1 class="description center-align post-title">Python系统管理</h1>
                 </div>
             </div>
         </div>
@@ -448,7 +448,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-09
+                    2021-03-13
                 </div>
                 
 
@@ -469,59 +469,164 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Matplotlib是一套面向对象的绘图库，其绘制的图表中的每个绘图元素（例如线条、文字、刻度等）都是对象</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#绘制x轴坐标值为0、1、2、3、4，所对应的y轴坐标值为1、2、5、6、8的折线图</span>
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'some numbers'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://www.hualigs.cn/image/60476819d3dd7.jpg" alt=""></p>
-<p>plot()函数</p>
-<ul>
-<li>plot(x,y,’bo’)    #用蓝色，小圆点标记</li>
+                <h1 id="一、相关模块"><a href="#一、相关模块" class="headerlink" title="一、相关模块"></a>一、相关模块</h1><ul>
+<li>os模块：与操作系统相关的函数</li>
+<li>os.path模块：与路径相关的函数</li>
+<li>glob模块：文件通配符操作</li>
+<li>tempfile模块：创建临时目录和文件</li>
+<li>shutil模块：与目录和文件操作相关的函数</li>
+<li>subprocess模块：用于执行其他程序</li>
 </ul>
+<h1 id="二、目录、文件和磁盘的基本操作"><a href="#二、目录、文件和磁盘的基本操作" class="headerlink" title="二、目录、文件和磁盘的基本操作"></a>二、目录、文件和磁盘的基本操作</h1><p><strong>创建目录</strong></p>
+<p>使用os模块中的mkdir函数，可以创建目录，语法形式如下：</p>
 <ul>
-<li>plot(y)    #改变纵轴坐标数值，横轴默认0,1,2……</li>
+<li>os.mkdir(path,mode=0o777)    #创建目录path</li>
+<li>os.makedirs(path,mode=0o777)    #创建目录path，以及所有的path中包含的上级目录</li>
 </ul>
+<p>其中，path为指定目录。如果path已存在，则导致FileExistsError</p>
+<p><strong>临时目录和文件的创建</strong></p>
+<p>使用tempfile模块中的函数，可以创建临时目录和文件，语法形式如下：</p>
 <ul>
-<li>plot(x1,y1,’g^’,x2,y2,’g-o’)    #使用多个x,y,format对作变量，把它们画在一个图里，格式串也可改为color=’green’,linestyle=’dashen’,marker=’o’。</li>
+<li>tempfile.mkdtemp(suffix=’’,prefix=’tmp’,dir=None)    #创建并返回临时目录</li>
+<li>tempfile.mkstemp(suffix=’’,prefix=’tmp’,dir=None,text=False)    #创建并返回临时文件</li>
+<li>tempfile.TemporaryDirectory(suffix=’’,prefix=’tmp’,dir=None)    #调用mkdtemp，创建临时目录</li>
+<li>tempfile.TemporaryFile(mode=’w+b’,buffering=None,encoding=None,newline=None,suffix=’’,prefix=’tmp’,dir=None)    #调用mkstemp，创建临时文件</li>
+<li>tempfile.tempdir    #设置临时目录对应的路径</li>
+<li>tempfile.gettempdir()    #获取临时目录</li>
 </ul>
-<p>subplot(numRows,numCols,plotNum)快速绘制包含多个子图的图表，左上的子区域的编号为1，若numRows, numCols和plotNum这三个数都小于10的话，可缩写为一个整数，例如subplot(323)等价于subplot(3,2,3)，subplot在plotNum指定的区域中创建一个轴对象。</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用Matplotlib模块绘制y=sin(x)的函数曲线</span>
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-<span class="token keyword">import</span> math
-x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>math<span class="token punctuation">.</span>pi<span class="token operator">*</span>i<span class="token operator">/</span><span class="token number">100</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-y<span class="token operator">=</span><span class="token punctuation">[</span>math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> x<span class="token punctuation">]</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://www.hualigs.cn/image/604764dc6bfb2.jpg" alt=""></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#利用NumPy模块和Matplotlib.pyplot工具包绘制y=e^-x*cos(2*pi*x)以及y=cos(2*pi*x)的函数曲线</span>
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np 
-<span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> np<span class="token punctuation">.</span>exp<span class="token punctuation">(</span><span class="token operator">-</span>t<span class="token punctuation">)</span><span class="token operator">*</span>np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token operator">*</span>t<span class="token punctuation">)</span>
-t1<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">0.1</span><span class="token punctuation">)</span>
-t2<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">,</span><span class="token number">0.02</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token number">211</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>t1<span class="token punctuation">,</span>f<span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'bo'</span><span class="token punctuation">,</span>t2<span class="token punctuation">,</span>f<span class="token punctuation">(</span>t2<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'k'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token number">212</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>t2<span class="token punctuation">,</span>np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token operator">*</span>t2<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'r--'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://www.hualigs.cn/image/604764dc3b957.jpg" alt=""></p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#随机生成满足mu为100、sigma为20的正态分布数据，并绘制其直方图</span>
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np 
-mu<span class="token punctuation">,</span>sigma<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">20</span>
-x<span class="token operator">=</span>mu<span class="token operator">+</span>sigma<span class="token operator">*</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>hist<span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span>density<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>facecolor<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">,</span>alpha<span class="token operator">=</span><span class="token number">0.75</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#绘制直方图</span>
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'IQ'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#绘制坐标等信息</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Probability'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Histogram of IQ'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">,</span><span class="token number">180</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0.03</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#设置坐标和网格</span>
-plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://www.hualigs.cn/image/604764dc6e394.jpg" alt=""><br>                                      ​<br>3/9/2021 8:23:59 PM </p>
+<p><strong>切换当前工作目录</strong></p>
+<p>使用os模块中的chdir函数，可以切换当前工作目录，语法形式如下：</p>
+<p>os.chdir(path)    #切换当前工作目录为path</p>
+<p>其中，path为指定文件。如果找不到path，则导致FileNotFoundError</p>
+<p><strong>目录内容列表</strong></p>
+<p>使用os模块中的listdir函数，可以显示一个目录中的文件/子目录列表，语法形式如下：</p>
+<p>os.listdir(path=’.’)    # 返回指定目录path中的所有文件/子目录的列表</p>
+<p>其中，path为指定目录，默认为当前目录：’.’。os.curdir也表示当前目录</p>
+<p><strong>文件通配符和glob.glob函数</strong></p>
+<p>使用glob模块中的glob函数，可以获取满足指定模式的文件/目录列表，语法形式如下：</p>
+<p>glob.glob(pathname)    #返回满足指定模式pathname的文件/目录的列表</p>
+<p>其中，pathname为目录/文件模式，可以包含通配符*（0或多个字符）和？（1个字符）</p>
+<p><strong>遍历目录和os.walk函数</strong></p>
+<p>使用os模块的walk函数，可以遍历指定的目录结构，语法形式如下：</p>
+<p>os.walk(top,topdown=True,onerror=None,followlink=False)    #返回目录结构的迭代器</p>
+<p>其中，top为起始目录；topdown若为False，则从下往上遍历。对于目录结构中的每一个目录，生成一个元组：（dirpath,dirnames,filenames），dirpath为目录，dirnames为其中包含的子目录列表，filenames为其中包含的文件列表。</p>
+<p>使用os模块的join函数，可以将目录名和文件名连接成全限定路径，函数形式如下：</p>
+<p>os.path.join(path1[,path2[, …]])</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#输出指定目录的目录结构</span>
+<span class="token keyword">import</span> re<span class="token punctuation">,</span>os<span class="token punctuation">,</span>os<span class="token punctuation">.</span>path
+<span class="token keyword">def</span> <span class="token function">ls_py</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>dirname<span class="token punctuation">,</span>subdirs<span class="token punctuation">,</span>files<span class="token punctuation">)</span><span class="token keyword">in</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'['</span><span class="token operator">+</span>dirname<span class="token operator">+</span><span class="token string">']'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> fname <span class="token keyword">in</span> files<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>dirname<span class="token punctuation">,</span>fname<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    path1<span class="token operator">=</span>r<span class="token string">'c:\pyrhonpa\ch17'</span>
+    ls_py<span class="token punctuation">(</span>path1<span class="token punctuation">)</span></code></pre>
+<p><strong>判断文件/目录是否存在</strong></p>
+<p>使用os.path模块函数exists，可以判断文件/目录是否存在，语法形式如下：</p>
+<p>os.path.exists(路径名)</p>
+<p><strong>测试文件类型</strong></p>
+<ul>
+<li>os.path.isfile(path)    #路径path是否为文件类型</li>
+<li>os.path.isdir(path)    #路径path是否为目录类型</li>
+<li>os.path.islink(path)    #路径path是否为链接类型</li>
+<li>os.path.ismount(path)    #路径path是否为装载点类型</li>
+<li>os.path.isabs(path)    #路径path是否为绝对路径</li>
+</ul>
+<p><strong>文件的日期及大小</strong></p>
+<p>使用os.path模块函数，可以获取文件和目录的其它属性，语法形式如下：</p>
+<ul>
+<li>os.path.getatime(path)    #返回上次访问时间</li>
+<li>os.path.getmtime(path)    #返回上次修改时间</li>
+<li>os.path.getctime(path)    #返回创建时间</li>
+<li>os.path.getsize(path)    #返回指定路径path的大小</li>
+</ul>
+<p>其中，path为指定文件目录路径，默认为当前目录: ‘.’</p>
+<p><strong>文件的删除</strong></p>
+<p>使用os模块中的remove函数，可以删除指定文件，语法形式如下：</p>
+<p>os.remove(path)    #删除指定文件path</p>
+<p><strong>目录的删除</strong></p>
+<p>使用os模块中的rmdir函数，可以删除指定目录，语法形式如下：</p>
+<p>os.rmdir(path)    #删除指定目录path</p>
+<p>使用shutil模块中的rmtree函数，可以删除指定目录及目录下的所有内容</p>
+<p>shutil.rmtree(path)    #删除指定目录path</p>
+<p><strong>文件和目录复制、重命名和移动</strong></p>
+<p>使用shutil模块中的下列函数，可以复制文件和目录，语法形式如下：</p>
+<ul>
+<li>shutil.copy(src,dst)    #拷贝文件src到dst，如果dst为目录，则拷贝到dst目录下</li>
+<li>shutil.copy2(src,dst)    #拷贝文件src到dst，如果dst为目录，则拷贝到dst目录下</li>
+<li>shutil.copytree(src,dst,symlinks=False,ignore=None)    #拷贝目录树src到dst</li>
+<li>shutil.move(src,dst)    #将文件/目录src移动到dst</li>
+</ul>
+<p><strong>磁盘的基本操作</strong></p>
+<p>使用shutil模块中的disk_usage函数，可以获取磁盘空间的使用情况，语法形式如下：</p>
+<p>shutil.disk_usage(path)    #返回指定path上的磁盘的空间使用情况：（总数，已用，可用）</p>
+<h1 id="三、执行操作系统命令和运行其他程序"><a href="#三、执行操作系统命令和运行其他程序" class="headerlink" title="三、执行操作系统命令和运行其他程序"></a>三、执行操作系统命令和运行其他程序</h1><p><strong>os.system函数</strong></p>
+<p>使用os模块中的system函数，可以在Python程序中执行操作系统的命令和脚本，或运行其它程序，语法形式如下：</p>
+<p>os.system(command)    #执行操作系统命令，返回命令执行结果的返回代码</p>
+<pre class=" language-python"><code class="language-python">os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'dir'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#执行操作系统命令</span>
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'notepad.exe'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#执行程序，启动记事本</span></code></pre>
+<p><strong>os.popen函数</strong></p>
+<p>执行操作系统的命令和脚本</p>
+<p>os.popen(…)    #执行操作系统命令，返回打开的管道（相当于文件）</p>
+<p><strong>subprocess模块</strong></p>
+<p>创建子进程、运行外部程序、连接到其输入/输出/错误管道、获取其返回值</p>
+<p>取代os.system和os.popen函数，提供更高级的功能</p>
+<ul>
+<li>call(args,*,stdin=None,stdout=None,stderr=None,shell=False,timeout=None)</li>
+<li>check_call(args,*,stdin=None,stdout=None,stderr=None,shell=False,timeout=None)</li>
+<li>check_output(args,’,stdin=None,stderr=None,shell=False,universal_newlines=False,timeout=None)</li>
+</ul>
+<p><strong>获取终端的大小</strong></p>
+<p>通过os或shutil模块的get_terminal_size函数，可以获取终端的大小，以方便输出内容的格式化操作</p>
+<ul>
+<li>os.get_terminal_size(fd=STDOUT_FILENO)    #获取并返回终端大小</li>
+<li>shutil.get_terminal_size(fallback=(80,24))    #获取并返回终端大小</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#获取终端的大小示例</span>
+<span class="token keyword">import</span> os<span class="token punctuation">,</span>shutil
+<span class="token keyword">def</span> <span class="token function">get_term_size_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sz<span class="token operator">=</span>shutil<span class="token punctuation">.</span>get_terminal_size<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'窗口大小：'</span><span class="token punctuation">,</span>sz<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>sz<span class="token punctuation">.</span>lines<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token operator">*</span> sz<span class="token punctuation">.</span>columns<span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    get_term_size_test<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><strong>文件压缩和解压缩</strong></p>
+<p>使用shutil模块的make_archive和unpack_archive等函数，实现文件的压缩和解压缩功能</p>
+<p>shutil模块支持的压缩和解压缩格式：shutil模块的get_archive_formats和get_unpack_formats函数返回支持的压缩和解压缩格式</p>
+<h1 id="四、CONFIGPARSER模块和配置文件"><a href="#四、CONFIGPARSER模块和配置文件" class="headerlink" title="四、CONFIGPARSER模块和配置文件"></a>四、CONFIGPARSER模块和配置文件</h1><ul>
+<li>configparser模块用于读取和写入配置文件</li>
+<li>INI文件及INI文件格式<ul>
+<li>通常位于应用程序的配置文件文件夹中，用于保存应用程序的各种配置信息</li>
+</ul>
+</li>
+<li>ConfigParser对象和INI文件操作<ul>
+<li>读取和写入INI文件……<br><img src="https://www.hualigs.cn/image/604c831cae4d9.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#读取和写入INI文件</span>
+<span class="token keyword">import</span> configparser
+<span class="token keyword">def</span> <span class="token function">ini_create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#创建INI文件</span>
+    config<span class="token operator">=</span>configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    config<span class="token punctuation">[</span><span class="token string">'SystemInfo'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'port'</span><span class="token punctuation">:</span><span class="token string">'8080'</span><span class="token punctuation">}</span>
+    config<span class="token punctuation">[</span><span class="token string">'GameInfo'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'level1'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'scores'</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">}</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'example.ini'</span><span class="token punctuation">,</span><span class="token string">'y'</span><span class="token punctuation">)</span><span class="token keyword">as</span> configfile<span class="token punctuation">:</span>
+        config<span class="token punctuation">.</span>write<span class="token punctuation">(</span>configfile<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">ini_read_write</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#读取和设置INI文件</span>
+    config<span class="token operator">=</span>configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    config<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">'example.ini'</span><span class="token punctuation">)</span>
+    config<span class="token punctuation">[</span><span class="token string">'SystemInfo'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'port'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'8088'</span>
+    config<span class="token punctuation">.</span>set<span class="token punctuation">(</span><span class="token string">'GameInfo'</span><span class="token punctuation">,</span><span class="token string">'scores'</span><span class="token punctuation">,</span><span class="token string">'1000'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> config<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token string">'GameInfo'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'example.ini'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> configfile<span class="token punctuation">:</span>
+        config<span class="token punctuation">.</span>write<span class="token punctuation">(</span>configfile<span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    ini_create<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    ini_read_write<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>3/13/2021 6:47:58 PM </p>
 
                 
             </div>
@@ -548,7 +653,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/">http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/</a>
+                    <a href="http://yoursite.com/2021/03/13/python-xi-tong-guan-li/">http://yoursite.com/2021/03/13/python-xi-tong-guan-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -755,54 +860,18 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/03/10/shu-zhi-ri-qi-he-shi-jian-chu-li/">
+                <a href="/2021/03/13/python-xi-tong-guan-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="数值、日期和时间处理">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Python系统管理">
                         
-                        <span class="card-title">数值、日期和时间处理</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            妖寂
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/04/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="你好 CODING">
-                        
-                        <span class="card-title">你好 CODING</span>
+                        <span class="card-title">Python系统管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -813,7 +882,45 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            妖寂
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/12/python-duo-xian-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python多线程">
+                        
+                        <span class="card-title">Python多线程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
                             </span>
                         <span class="publish-author">
                             

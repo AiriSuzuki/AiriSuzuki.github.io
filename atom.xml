@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-12T15:54:54.566Z</updated>
+  <updated>2021-03-13T10:48:17.217Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python系统管理</title>
+    <link href="http://yoursite.com/2021/03/13/python-xi-tong-guan-li/"/>
+    <id>http://yoursite.com/2021/03/13/python-xi-tong-guan-li/</id>
+    <published>2021-03-13T10:48:17.216Z</published>
+    <updated>2021-03-13T10:48:17.217Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、相关模块&quot;&gt;&lt;a href=&quot;#一、相关模块&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Python多线程</title>
     <link href="http://yoursite.com/2021/03/12/python-duo-xian-cheng/"/>
     <id>http://yoursite.com/2021/03/12/python-duo-xian-cheng/</id>
     <published>2021-03-12T15:49:03.849Z</published>
-    <updated>2021-03-12T15:54:54.566Z</updated>
+    <updated>2021-03-13T10:50:15.894Z</updated>
     
     
       
@@ -42,7 +63,7 @@
     <link href="http://yoursite.com/2021/03/11/python-wang-luo-bian-cheng-he-tong-xin/"/>
     <id>http://yoursite.com/2021/03/11/python-wang-luo-bian-cheng-he-tong-xin/</id>
     <published>2021-03-11T15:52:13.777Z</published>
-    <updated>2021-03-11T15:54:11.206Z</updated>
+    <updated>2021-03-13T10:49:49.068Z</updated>
     
     
       
@@ -59,11 +80,11 @@
   </entry>
   
   <entry>
-    <title>PYTHON数据库访问</title>
+    <title>Python数据库访问</title>
     <link href="http://yoursite.com/2021/03/10/python-shu-ju-ku-fang-wen/"/>
     <id>http://yoursite.com/2021/03/10/python-shu-ju-ku-fang-wen/</id>
     <published>2021-03-10T15:07:18.986Z</published>
-    <updated>2021-03-10T15:31:39.975Z</updated>
+    <updated>2021-03-13T10:50:15.215Z</updated>
     
     
       
@@ -84,7 +105,7 @@
     <link href="http://yoursite.com/2021/03/10/shu-zhi-ri-qi-he-shi-jian-chu-li/"/>
     <id>http://yoursite.com/2021/03/10/shu-zhi-ri-qi-he-shi-jian-chu-li/</id>
     <published>2021-03-10T14:39:44.310Z</published>
-    <updated>2021-03-10T15:26:16.843Z</updated>
+    <updated>2021-03-13T10:49:47.845Z</updated>
     
     
       
@@ -105,7 +126,7 @@
     <link href="http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/"/>
     <id>http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/</id>
     <published>2021-03-09T12:10:16.711Z</published>
-    <updated>2021-03-09T12:35:21.898Z</updated>
+    <updated>2021-03-13T10:51:03.522Z</updated>
     
     
       
