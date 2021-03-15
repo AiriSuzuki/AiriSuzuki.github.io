@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-13T10:48:17.217Z</updated>
+  <updated>2021-03-15T14:55:19.313Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>黑客攻击技术</title>
+    <link href="http://yoursite.com/2021/03/15/hei-ke-gong-ji-ji-zhu/"/>
+    <id>http://yoursite.com/2021/03/15/hei-ke-gong-ji-ji-zhu/</id>
+    <published>2021-03-15T14:55:19.216Z</published>
+    <updated>2021-03-15T14:55:19.313Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;系统攻击针对的是计算机内核，可以侵入计算机内核管理的内存、注册表等区域，非法获取其中数据或root权限&lt;/li&gt;
+&lt;li&gt;应用程序攻击是围绕用户运行的程序实施的攻击。通过向应用程序注入包含恶意代码的DLL或调试操作，拦截用户的键盘输入&lt;/li&gt;
+&lt;li&gt;Web攻</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Python系统管理</title>
