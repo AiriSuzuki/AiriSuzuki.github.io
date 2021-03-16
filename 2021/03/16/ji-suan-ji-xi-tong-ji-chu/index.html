@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="黑客攻击技术, Airi Suzuki">
+    <meta name="keywords" content="计算机系统基础, Airi Suzuki">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>黑客攻击技术 | Airi Suzuki</title>
+    <title>计算机系统基础 | Airi Suzuki</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">黑客攻击技术</h1>
+                    <h1 class="description center-align post-title">计算机系统基础</h1>
                 </div>
             </div>
         </div>
@@ -448,7 +448,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-15
+                    2021-03-16
                 </div>
                 
 
@@ -469,175 +469,110 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>系统攻击针对的是计算机内核，可以侵入计算机内核管理的内存、注册表等区域，非法获取其中数据或root权限</li>
-<li>应用程序攻击是围绕用户运行的程序实施的攻击。通过向应用程序注入包含恶意代码的DLL或调试操作，拦截用户的键盘输入</li>
-<li>Web攻击利用网络浏览器与Web服务器的结构漏洞实施黑客攻击，是目前常用的攻击技术</li>
-<li>网络黑客攻击基于网络实施黑客攻击，包括常见的DoS攻击、网络包嗅探（Spoofing）等</li>
-<li>此外，还有无线网络攻击与其他黑客攻击技术<br><img src="https://www.hualigs.cn/image/604f72e460616.jpg" alt=""></li>
+                <h3 id="1-进程内存映像"><a href="#1-进程内存映像" class="headerlink" title="1.进程内存映像"></a>1.进程内存映像</h3><ul>
+<li>代码区：包含组成可执行文件的各种命令，保存着函数、控制语句、常数等，在进程创建时保存一次，直到进程销毁。代码区为只读区域，不可执行写入操作</li>
+<li>数据与BSS区：保存着全局变量、静态常量、数组、结构体等。在进程创建时分配空间，进程运行时存入值。这两个区域都是可读写的<br>堆区：该区域是事先预约的空间，供进程运行时使用。程序员调用API可以分配任意大小内存。一般调用malloc()或calloc()函数进行分配，调用free()函数进行释放</li>
+<li>栈区：程序自动使用的临时内存区域，用于保存局部变量的值，在函数调用时分配，函数退出时返还。堆与栈内存分配于相同空间。堆从低地址到高地址分配内存，栈从高地址向低地址分配内存，它们是系统黑客攻击的主要目标。在main()函数中，按照参数、返回地址、帧指针、局部变量顺序压入栈<br><img src="https://www.hualigs.cn/image/6050c8b9bf973.jpg" alt=""></li>
 </ul>
-<h1 id="一、应用程序攻击"><a href="#一、应用程序攻击" class="headerlink" title="一、应用程序攻击"></a>一、应用程序攻击</h1><ul>
-<li>计算机中有许多安全解决方案。比如键盘安全解决方案，对键盘输入与屏幕输出之间传送的数据进行加密。黑客攻击使用的键盘记录器也采用了类似原理，系统内核提供的消息钩取功能。键盘输入由系统内核进行感知，在中间拦截消息。</li>
-<li>开发应用程序时，调试器是必需的工具。发生特定事件或调用API时，调试器会暂停正在执行的操作，转而运行其他功能或记录内存状态。黑客也可以使用它诱导系统运行恶意代码。</li>
+<h3 id="2-应用程序"><a href="#2-应用程序" class="headerlink" title="2.应用程序"></a>2.应用程序</h3><ul>
+<li>对使用编译型语言编写的程序，要采用黑盒方式探测漏洞进行黑客攻击。因为我们无法通过反编译方式得到程序源代码进行分析，只能通过输入不同值观察进程行为以进行黑客攻击</li>
+<li>解释型语言程序，可以直接通过分析源代码寻找程序漏洞，这成为“白盒漏洞分析技术”</li>
 </ul>
-<h1 id="二、应用程序攻击技术"><a href="#二、应用程序攻击技术" class="headerlink" title="二、应用程序攻击技术"></a>二、应用程序攻击技术</h1><p><strong>1.消息钩取</strong></p>
+<h3 id="3-Web"><a href="#3-Web" class="headerlink" title="3.Web"></a>3.Web</h3><ul>
+<li>寻找漏洞以获取系统root权限，或者发动黑客攻击盗取重要信息时，最常用的技术就是Web技术。虽然防火墙、IPS、IDS等可以组织来自外部的大部分攻击，但在安全规则中，向外提供Web服务器的80端口却常被作为一个例外进行处理<br><img src="https://www.hualigs.cn/image/6050c8b9b959c.jpg" alt=""></li>
+</ul>
+<h3 id="4-HTTP"><a href="#4-HTTP" class="headerlink" title="4.HTTP"></a>4.HTTP</h3><ul>
+<li>HTTP请求协议由协议头与协议体组成，协议头含有方法类型、请求URL等服务处理所需的各种信息，而协议体则包含表单参数，与用户输入值对应</li>
+<li>HTTP响应协议大致由状态码、内容类型、响应内容组成，其中状态码指示响应状态，内容类型指出传送的数据类型，响应内容是要展现给用户的结果<br><img src="https://www.hualigs.cn/image/6050c8b9b926e.jpg" alt=""></li>
+</ul>
+<h3 id="5-Cookie与会话"><a href="#5-Cookie与会话" class="headerlink" title="5.Cookie与会话"></a>5.Cookie与会话</h3><ul>
+<li>浏览器保存数据的空间，称为Cookie</li>
+<li>目前只将简单的控制信息、会话ID信息保存于此。由于Cookie信息包含于HTTP协议头信息，所以可将其用作在客户端与服务器之间传递信息的手段</li>
+<li>会话是保存用户信息的Web服务器对象</li>
+<li>用户登录Web后，用户信息就会保存在会话之中，然后通过Cookie将会话ID传递给浏览器。Web服务器会使用通过HTTP头传递的会话ID（位于Cookie）判断是否是认证用户</li>
+</ul>
+<p>基于会话的认证系统：</p>
 <ul>
-<li>使用user32.dll中的SetWindowsHookExA()</li>
-<li>Windows通过钩链（HookChain，处理消息的一系列函数指针的列表）处理来自键盘、鼠标等设备的消息</li>
-<li>可将特定处理进程的指针强行注册到钩链，这样消息到来时即可对其进行特定处理</li>
-<li>键盘记录器是最具代表性的攻击技术，采用消息钩取方式，在中间窃取用户的键盘输入消息，然后将之发送给黑客</li>
+<li>（1）创建会话：创建用于保存用户认证信息的会话。创建的会话由Web服务器管理，保存在Web服务器进程占用的内存中</li>
+<li>（2）传送会话ID：创建会话时，会同时创建用于标识会话的ID。为了判断相应客户端是否已经认证，在HTTP响应的Set-Cookie字段异同传送会话ID</li>
+<li>（3）保存会话ID：浏览器从HTTP响应头提取会话ID并添加到Cookie</li>
+<li>（4）传送会话ID：请求服务时，浏览器会将所有Cookie值放入HTTP请求头的Cookie字段、并进行传送，其中也包含会话ID</li>
+<li>（5）识别会话：Web服务器分析HTTP头，从中提取会话ID。然后根据相应ID从自身会话列表提取相应值，进行认证</li>
 </ul>
-<p><strong>2.API钩取</strong></p>
+<p><strong>例1：一个UNIX密码破解器</strong></p>
 <ul>
-<li>API钩取技术利用了操作系统提供的调试进程</li>
-<li>首先使用调试器，在应用程序特定的命令位置设置断点，注册特定方法以便执行</li>
-<li>应用程序运行过程中，遇到断点就会执行之前注册的方法（回调方法），黑客只要在回调方法中植入攻击代码即可执行相应动作</li>
-</ul>
-<p><strong>3.DLL注入</strong></p>
-<ul>
-<li>将动态链接库DLL插入特定应用程序</li>
-<li>使用注册表，具体做法是现在注册表特定位置输入指定DLL名称，应用程序调用user32.dll时，指定DLL就会被加载到内存</li>
-<li>注册钩取函数，以便特定事件发生时加载指定DLL</li>
-<li>为运行中的应用程序创建远程线程以插入DLL。Windows中，CreateRemoteThread()函数用于创建远程线程</li>
-</ul>
-<p><strong>4.代码注入</strong></p>
-<ul>
-<li>与采用线程方式的DLL注入技术类似，不同之处在于，它插入的不是DLL，而是可以直接运行的shellcode</li>
-<li>代码注入的优点是不需要事先将DLL保存到系统特定位置，并且执行速度快，不易被察觉</li>
-<li>不足之处在于，shellcode自身特点决定了无法向其插入复杂的黑客攻击代码</li>
-</ul>
-<h1 id="三、Web攻击"><a href="#三、Web攻击" class="headerlink" title="三、Web攻击"></a>三、Web攻击</h1><ul>
-<li>Web系统一般由网络浏览器、Web服务器、数据库三部分组成</li>
-<li>黑客会恶意使用Web系统提供的功能</li>
-<li>利用文件上传功能，将Webshell文件与恶意代码上传到Web服务器，然后运行Web shell文件，获取上传文件所在位置，进而控制Web服务器</li>
-<li>利用用户输入功能可以实施SQL注入攻击，通过输入非正常SQL查询语句获取Web服务器的错误信息，并对这些信息加以分析，进而实施攻击</li>
-<li>利用文件下载功能，可以将恶意代码散布到网络上的多台PC。网络浏览器中运行的THML与脚本代码可以被恶意用于开展XSS（跨站脚本）攻击与CSS（层叠样式表）攻击</li>
-</ul>
-<h1 id="四、Web攻击技术"><a href="#四、Web攻击技术" class="headerlink" title="四、Web攻击技术"></a>四、Web攻击技术</h1><p><strong>1.XSS（Cross-Site Scripting）攻击技术</strong></p>
-<ul>
-<li>将恶意代码植入到提供给其它用户使用的页面中。比如HTML页面和客户端脚本</li>
-<li>感染浏览页面的用户PC，从中盗取用户个人信息、控制企业数据、挂马等。恶意代码大多数是脚本（JavaScript——公认的新型“ShellCode”），它读取cookie，并将其发送到特定URL</li>
-<li>增强浏览器安全性，应用Web防火墙等应对</li>
-</ul>
-<p><strong>2.CSRF（Cross Site Request Forgery，跨站请求伪造）</strong></p>
-<ul>
-<li>也被称为“One Click Attack”或者“Session Riding”，通常缩写为CSRF或者XSRF</li>
-<li>XSS利用站点内的信任用户，而CSRF则通过伪装受信任用户的请求来利用受信任的网站，对Web服务器发动攻击</li>
-<li>CSRF攻击往往不大流行，难以防范<br><img src="https://www.hualigs.cn/image/604f72e66f246.jpg" alt=""></li>
-</ul>
-<p><strong>3.网络钓鱼（Phishing）</strong></p>
-<p>黑客通过精心设计与银行、证券公司类似的仿冒网站（欺诈性邮件），骗取受害人在这些网站输入的金融信息或个人敏感信息</p>
-<p><strong>4.域欺骗（Pharming）攻击</strong></p>
-<p>黑客首先入侵DNS服务器，修改正常的域名与IP对照表，将仿冒网站的IP地址发送给用户浏览器，从而将用户引导至精心设计的仿冒网站</p>
-<p><strong>5.SQL注入</strong></p>
-<ul>
-<li>利用HTML input标签发动攻击，以常见的登录处理过程为例说明</li>
-<li>黑客向用户ID与密码框中输入的是一些能够诱使数据库产生错误行为的值。比如将类似OR 1=1输入并提交，服务器接收并构造SQL语句查询数据库，验证通过</li>
-<li>黑客通过反复输入非正常的SQL语句，分析数据库返回的数据，从而得到最适合对系统进行攻击的SQL语句</li>
-</ul>
-<p><strong>6.Web shell攻击</strong></p>
-<ul>
-<li>恶意利用了Web提供的文件上传功能</li>
-<li>将用于远程操纵服务器的Webshell文件上传到Web服务器，然后找到上传文件所在位置，得到访问Web shell文件的URL地址</li>
-<li>然后，通过该URL地址运行Web shell文件，获取可以控制操作系统的超级权限</li>
-</ul>
-<h1 id="四、网络攻击"><a href="#四、网络攻击" class="headerlink" title="四、网络攻击"></a>四、网络攻击</h1><p>TCP/IP本质上并不具有防范攻击的能力，在连接设置与通信过程中有很多问题</p>
-<ul>
-<li>客户端初次尝试连接服务器时会向服务器发送SYN包，服务器将为该连接分配缓冲资源——若客户端不断向服务器发送SYN包，则服务器就会不断分配通信缓冲，缓冲全部耗尽后，服务器瘫痪</li>
-<li>正常的通信连接结束后，黑客可以伪装成客户机拦截通信会话。一般使用TCP头中的序列号对通信对方进行认证，第三方可以轻松得到该序列号，并伪装相应客户机</li>
-<li>IP头中的源IP信息很容易伪造。将源IP伪造为攻击方系统的IP而非客户机PC的IP并向服务器发送SYN包，服务器就会将ACK包发送给攻击方系统，从而实现Dos攻击</li>
-</ul>
-<h1 id="五、网络黑客攻击技术"><a href="#五、网络黑客攻击技术" class="headerlink" title="五、网络黑客攻击技术"></a>五、网络黑客攻击技术</h1><p><strong>1.端口扫描</strong></p>
-<ul>
-<li>IP是识别站点的逻辑地址，端口是逻辑单位，服务器对外开放的端口中最具代表性的是80,443（HTTPS），21（FTP），22（SSH），23（Telnet），25/110（SMTP/POP3），161（SNMP）…<ul>
-<li>公认端口（Well-known Ports）：从0到1023</li>
-<li>注册端口（Registered Ports）：从1024到49151，松散地绑定于一些服务</li>
-<li>动态和/或私有端口（Dynamic and/or Private Ports）：从49152到65535.理论上，不应为服务分配这些端口。实际上，机器通常从1024起分配动态端口，SUN的RPC端口从32768开始</li>
-</ul>
+<li><p>需要用标准库中的crypt模块的crypt()函数。传入密码和盐即可。用crypt()函数哈希一个密码试试，输入密码”egg”和盐”HX”，返回的哈希值是”HX9LLTdc/jiDE”，现在可以遍历整个字典，试图用常用的盐来匹配破解哈希密码</p>
 </li>
-<li>端口扫描是针对对外提供服务的服务器进行扫描，获取服务器对外开放的端口列表<ul>
-<li>基于UDP的端口扫描通过UDP包扫描端口</li>
-<li>基于TCP的端口扫描则通过SYN、FIN等多种包扫描端口，探测相应端口是否开放</li>
-</ul>
+<li><p>哈希密码的前两位就是盐的前两位，这里假设盐只有两位<br><img src="https://www.hualigs.cn/image/6050c8b89f867.jpg" alt=""></p>
+</li>
+<li><p>程序分两部分，一部分是打开字典，另一部分是哈希匹配密码</p>
+</li>
+<li><p>UNIX/Linux系统将密码存储在/etc/shadow文件中，提供了更安全的哈希散列算法SHA-512算法，Python标准库中hashlib模块提供了此算法，可以更新代码，破解SHA-512哈希散列加密算法的密码</p>
 </li>
 </ul>
-<p><strong>2.包嗅探</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># coding=UTF-8</span>
+<span class="token comment" spellcheck="true">#暴力破解UNIX的密码，需要输入字典文件和UNIX的密码文件</span>
+
+<span class="token keyword">import</span> crypt
+<span class="token keyword">def</span> <span class="token function">testPass</span><span class="token punctuation">(</span>cryptPass<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    salt<span class="token operator">=</span>cryptPass<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#前两个字符</span>
+    dictfile<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">'dictionary.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#打开字典文件</span>
+    <span class="token keyword">for</span> word <span class="token keyword">in</span> dictfile<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        word<span class="token operator">=</span>word<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#去行尾换行符，保留原始的字符，不去空格</span>
+        cryptWord<span class="token operator">=</span>crypt<span class="token punctuation">.</span>crypt<span class="token punctuation">(</span>word<span class="token punctuation">,</span>salt<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> cryptPass<span class="token operator">==</span>cryptWord<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Found Passed:'</span><span class="token punctuation">,</span>word<span class="token punctuation">)</span>
+            <span class="token keyword">return</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Password not found!'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    passfile<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">'passwords.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#读取密码文件 open('r/etc/shadow','r')</span>
+    <span class="token keyword">for</span> line <span class="token keyword">in</span> passfile<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        user<span class="token operator">=</span>line<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#前第一项</span>
+        cryptPass<span class="token operator">=</span>line<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Cracking Password For:"</span><span class="token punctuation">,</span>user<span class="token punctuation">)</span>
+        testPass<span class="token punctuation">(</span>cryptPass<span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <ul>
-<li>以太网的同一网络环境（使用同一路由器）中，数据包的传送是基于MAC地址进行的。一台PC向另一台PC传送数据时，会广播到同网段的所有PC</li>
-<li>借助包嗅探技术，PC会接收并处理所有数据包。这样，同一网络中传播的所有数据可一目了然</li>
+<li>sqlmap模块（非标准库，sqlmap.org）提供了wordlist文件，解压后，得到的wordlist.txt（安转目录\data\txt\wordlist.tx_再解压）文件可以作为字典用于破解，包含大量常用密码超过120万个，10+MB</li>
 </ul>
-<p><strong>3.会话劫持（Session Hijacking）攻击</strong></p>
+<p><strong>例2：ZIP文件密码破解</strong></p>
 <ul>
-<li>大致分为HTTP会话劫持与TCP会话劫持两类。前者是指通过盗取保存服务认证信息的Cookie中的SessionID值进行黑客攻击，后者是指盗取TCP数据包信息</li>
-<li>网络攻击中常见TCP会话劫持</li>
-<li>TCP协议使用IP、Port、Sequence Number三个要素对通信对方进行认证 </li>
+<li>Python的标准库提供了ZIP文件的提取压缩模块zipfile，现在试用此模块暴力破解出加密的ZIP文件</li>
+<li>可以用extractall()这个函数抽取文件，密码正确则返回正确，密码错误则抛出异常</li>
 </ul>
-<p>做法：</p>
-<ul>
-<li>先通过包嗅探获取认证信息，然后使用它在中间拦截客户机与服务器之间的通信</li>
-<li>黑客暂时断开客户机与服务器之间的连接，将发送方IP修改为黑客PC的IP，重设与服务器的连接</li>
-<li>在服务器看来，通信只是暂时发生了中断，然后再次成功连接，从而将黑客PC误认为客户机</li>
-<li>客户机与黑客PC也采用类似方式设置连接。这样，客户机与服务器之间的所有通信都会经过黑客PC</li>
-</ul>
-<p><strong>4.欺骗（Spoofing）攻击</strong></p>
-<ul>
-<li>可以对DNS、IP、ARP(IP-&gt;MAC)进行欺骗攻击</li>
-<li>ARP欺骗</li>
-<li>PC内部有ARP缓存表，若在ARP缓存中查不到相应信息，则可以通过ARP协议获取指定IP对应的MAC</li>
-<li>由于ARP协议在设计时未充分考虑安全问题，所以很容易受到攻击。只要使用ARP Reply包即可轻松操作对方的ARP缓存表</li>
-<li>黑客将PC A与PC B对应的信息替换为自身PC的MAC地址后，所有通信都会经过黑客PC </li>
-</ul>
-<p><strong>5.DoS（Denial of Service）攻击</strong></p>
-<ul>
-<li>通过修改SYN数据包的发送方地址，或者不断发送SYN数据包，将大量IP数据包分割为更小的单位进行传送等，即可使系统服务陷入瘫痪</li>
-<li>DoS攻击指通过发送大量的数据包使系统服务瘫痪 </li>
-<li>使用少数几台PC发动DoS攻击使攻击目标系统服务瘫痪并非易事。黑客广泛散播病毒，将大量PC机变为僵尸PC（“肉鸡”），通过控制这些僵尸PC发送大量合法服务请求，以使目标主机服务瘫痪——DDoS</li>
-<li>通过僵尸网络（Botnet）发动DDoS攻击仍然是非常有用的攻击手段。恶意代码可以通过电子邮件、公告栏、木马等多种方式进行传播</li>
-<li>为了防范DDoS攻击，一般采用网络隔离，将业务网与互联网隔离，接入互联网的机器感染，影响范围也不会扩散到内网</li>
-</ul>
-<h1 id="六、系统攻击"><a href="#六、系统攻击" class="headerlink" title="六、系统攻击"></a>六、系统攻击</h1><p>利用计算机系统结构与功能漏洞非法盗取敏感信息，或者诱使计算机执行意想不到的功能。 </p>
-<p><strong>1.Rootkit</strong></p>
-<ul>
-<li>获取目标主机的root权限，或者安装可以控制系统的后门</li>
-<li>有用户模式、内核模式、引导模式三种类型</li>
-<li>用户模式在应用程序级别工作，比较容易测出，对系统危害较低</li>
-<li>内核模式下会向内核添加其它代码，或者直接用新代码替代原有代码。开发虽然有难度，但能够对系统造成致命损害</li>
-<li>引导模式对MBR（Master Boot Record，主引导记录）、VBR（Volume Boot Record，卷引导记录）、引导扇区产生影响，能够对整个文件系统加密，或者使系统无法引导</li>
-</ul>
-<p><strong>2.后门</strong></p>
-<p>后门是指可以远程控制用户PC的程序</p>
-<p><strong>3.注册表攻击</strong></p>
-<p>注册表是一种数据库，采用“键，值”的形式保存各种信息。可以通过接口CRUD（Create Read Update Delete）操作注册表，尝试初始化用户密码、修改防火墙设置、DLL注入等多种攻击</p>
-<p><strong>4.缓冲区溢出攻击</strong></p>
-<ul>
-<li>通过向进程输入非正常数据，将黑客精心准备的数据保存到内存，并使之运行</li>
-<li>进程运行时，相应的数据会进入其内存区域，如栈、堆以及寄存器。修改此类数据后，进程的处理顺序就会改变或者停止运行。黑客通过不断修改输入值，观察哪些数据会引发错误，以及在输入值的哪一部分植入shell code可以运行，最终编写攻击代码</li>
-<li>缓冲区溢出攻击代码不是独立运行的程序，它是随视频、音乐、文档一起运行的程序文件</li>
-<li>将含有错误代码的视频发布到网络，用户下载该视频后，在播放器中将视频文件打开的瞬间，其内部含有的shell code会使内存陷入异常，从而得以运行 </li>
-</ul>
-<p><strong>5.竞态条件攻击</strong></p>
-<ul>
-<li>竞态条件是指两个进程为了使用一种资源而彼此竞争的状况。多个进程同时写一个文件时，就需要相互竞争，以获得该文件的句柄。竞态条件攻击利用此过程中出现的安全漏洞发动攻击</li>
-<li>最常用的方式是利用/etc/passwd文件的负号链接，etc/passwd文件保存着用户账户信息。首先，使用root权限获得用户输入，创建临时文件，查找用于处理逻辑的进程。黑客向该进程反复输入代表添加用户的值（hacker: :0:0:root:/root:/bin/ksh）。另一方面，运行程序，反复创建/etc/passwd文件的符号链接（与临时文件同名）。两个进程争夺文件句柄的过程中，进程会向符号文件链接保存用户输入。此时，hacker: :0:0:root:/root:/bin/ksh会被写入etc/passwd文件，最终黑客账户获得root权限</li>
-</ul>
-<h1 id="三、其他攻击技术"><a href="#三、其他攻击技术" class="headerlink" title="三、其他攻击技术"></a>三、其他攻击技术</h1><p><strong>1.无线局域网黑客攻击技术</strong></p>
-<ul>
-<li>通过无线AP使用WIFI，无线局域网认证合法用户，并采用WEP、WPA、WPA2等多种安全机制对传送的数据进行加密</li>
-<li>WEP（Wired Equivalent Privacy，有线等效加密）RC4串流加密技术有缺陷</li>
-<li>WPA（WiFi Protected Access WiFi保护接入） 提高了安全性，但最初认证过程中存在隐藏WPA密钥的漏洞。黑客能够强制终止认证的会话，诱导重新认证，从而轻松获取WPA密钥</li>
-<li>WPA2使用AES-CCMP加密方法弥补WPA的缺点。虽然无法破解或盗取WPA2的加密密钥，但采用ARP欺骗方式可以窃取接入者的敏感信息。因此，需要使用WIPS（Wireless Intrusion Prevention System）等设备为无线局域网构建立体防御体系</li>
-</ul>
-<p><strong>2.密码攻击技术</strong></p>
-<p>第三方不是合法的加密参与方，它通过非正常方法试图进行加密、解密，称为密码攻击</p>
-<ul>
-<li>密文单独攻击是指攻击者在只有密文的情形下找出明文与加密密钥，攻击难度最高</li>
-<li>已知明文攻击是指攻击者在有密文与部分明文的情形下展开攻击</li>
-<li>选择明文攻击是指攻击者在能够执行加密的状态下进行攻击</li>
-<li>选择密文攻击是指攻击者在可以解密的状态下进行攻击</li>
-<li>暴力破解攻击，使用所有可能的字符组合进行暴力破解。从事先定义的字典依次取值代入，以达到破解密码的目的</li>
-</ul>
-<p><strong>3.社会工程黑客攻击技术</strong></p>
-<p>只能通过不断对雇员进行安全培训并提高其安全意识进行预防<br>3/15/2021 10:55:05 PM </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> zipfile
+<span class="token keyword">import</span> threading
+<span class="token keyword">def</span> <span class="token function">extractFile</span><span class="token punctuation">(</span>zFile<span class="token punctuation">,</span>password<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        zFile<span class="token punctuation">.</span>extractall<span class="token punctuation">(</span>pwd<span class="token operator">=</span>password<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#extractall(pwd=password.encode('ascii'))</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Foune Passwd:"</span><span class="token punctuation">,</span>password<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> password
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    zFile<span class="token operator">=</span>zipfile<span class="token punctuation">.</span>ZipFile<span class="token punctuation">(</span><span class="token string">'unzip.zip'</span><span class="token punctuation">)</span>
+    passFile<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">'dictionary.txt'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> line <span class="token keyword">in</span> passFile<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        password<span class="token operator">=</span>line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+        t<span class="token operator">=</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>extractFile<span class="token punctuation">,</span>args<span class="token operator">=</span><span class="token punctuation">(</span>zFile<span class="token punctuation">,</span>password<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>   
+    <span class="token triple-quoted-string string">''' 单线
+    guess=extractFile(zFile,password)
+    if guess:
+        print('Password=',password)
+        return
+    else:
+        print("can't find password")
+        return
+    '''</span>
+
+<span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>3/16/2021 11:06:45 PM </p>
 
                 
             </div>
@@ -664,7 +599,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2021/03/15/hei-ke-gong-ji-ji-zhu/">http://yoursite.com/2021/03/15/hei-ke-gong-ji-ji-zhu/</a>
+                    <a href="http://yoursite.com/2021/03/16/ji-suan-ji-xi-tong-ji-chu/">http://yoursite.com/2021/03/16/ji-suan-ji-xi-tong-ji-chu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -871,9 +806,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/03/16/ji-suan-ji-xi-tong-ji-chu/">
                     <div class="card-image">
@@ -891,9 +827,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -902,6 +838,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -912,13 +849,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/13/python-xi-tong-guan-li/">
+                <a href="/2021/03/15/hei-ke-gong-ji-ji-zhu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Python系统管理">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="黑客攻击技术">
                         
-                        <span class="card-title">Python系统管理</span>
+                        <span class="card-title">黑客攻击技术</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -929,7 +866,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-15
                             </span>
                         <span class="publish-author">
                             
