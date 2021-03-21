@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-19T12:47:53.559Z</updated>
+  <updated>2021-03-21T09:00:43.683Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Web攻击--密码破解攻击</title>
+    <link href="http://yoursite.com/2021/03/21/web-gong-ji-mi-ma-po-jie-gong-ji/"/>
+    <id>http://yoursite.com/2021/03/21/web-gong-ji-mi-ma-po-jie-gong-ji/</id>
+    <published>2021-03-21T09:00:43.682Z</published>
+    <updated>2021-03-21T09:00:43.683Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;与PHP/JSP类似，Python也可以访问Web页面&lt;ul&gt;
+&lt;li&gt;借助urllib与urllib2模块可以实现对Web页面的访问。urllib中，使用key1=value1&amp;amp;key2=value2的方式创建POST消息，就像HTTP协议一样。在ur</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Web攻击--SQL注入</title>
     <link href="http://yoursite.com/2021/03/19/web-gong-ji-sql-zhu-ru/"/>
     <id>http://yoursite.com/2021/03/19/web-gong-ji-sql-zhu-ru/</id>
     <published>2021-03-19T12:46:12.693Z</published>
-    <updated>2021-03-19T12:47:53.559Z</updated>
+    <updated>2021-03-21T09:00:58.004Z</updated>
     
     
       
@@ -42,14 +65,14 @@
     <link href="http://yoursite.com/2021/03/18/ying-yong-cheng-xu-gong-ji/"/>
     <id>http://yoursite.com/2021/03/18/ying-yong-cheng-xu-gong-ji/</id>
     <published>2021-03-18T13:02:37.667Z</published>
-    <updated>2021-03-18T13:05:38.264Z</updated>
+    <updated>2021-03-21T09:02:58.175Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;一、Windows应用程序的基本概念&quot;&gt;&lt;a href=&quot;#一、Windows应用程序的基本概念&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;一、Windows应用程序的基本概念&quot;&gt;&lt;a href=&quot;#一、Windows应用程序的基本概念&quot; class=&quot;headerlink&quot;</summary>
         
       
     

@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Airi Suzuki" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Airi Suzuki" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
@@ -469,19 +469,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、Windows应用程序的基本概念"><a href="#一、Windows应用程序的基本概念" class="headerlink" title="一、Windows应用程序的基本概念"></a>一、Windows应用程序的基本概念</h1><ul>
+                <h2 id="一、Windows应用程序的基本概念"><a href="#一、Windows应用程序的基本概念" class="headerlink" title="一、Windows应用程序的基本概念"></a>一、Windows应用程序的基本概念</h2><ul>
 <li>对Windows应用程序进行黑客攻击，必须拥有Windows API基础知识</li>
 <li>开发Windows应用程序时，往往要使用各种lib与DLL库</li>
 <li>lib是静态库，生成Windows可执行文件（exe文件）时，它们被包含到程序</li>
 <li>DLL是动态链接库，应用程序运行时，才会加载调用相应的DLL库。Win32API大部分以DLL库形式存在<br><img src="https://www.hualigs.cn/image/60534b2984c14.jpg" alt=""></li>
 </ul>
 <p>Win32 API提供了多种用于控制低级操作系统功能的接口，所以不仅用于开发一般程序，还广泛应用于程序调试与黑客攻击程序的开发</p>
-<h1 id="二、在Python中使用Win32-API"><a href="#二、在Python中使用Win32-API" class="headerlink" title="二、在Python中使用Win32 API"></a>二、在Python中使用Win32 API</h1><ul>
+<h2 id="二、在Python中使用Win32-API"><a href="#二、在Python中使用Win32-API" class="headerlink" title="二、在Python中使用Win32 API"></a>二、在Python中使用Win32 API</h2><ul>
 <li>Python默认提供ctypes模块（ctypes在Python2和Python3中有所不同），通过它可以在Python代码中调用DLL，使用C/C++的变量类型（想实现更高级的黑客攻击技术，必须理解掌握ctypes）</li>
 <li>ctypes可以在Windows、Linux、UNIX、OS X、Android等多种平台中使用</li>
 <li>ctypes适合于“中轻量级”的Python、C/C++混合编程</li>
 </ul>
-<h1 id="三、ctypes模块的基本概念"><a href="#三、ctypes模块的基本概念" class="headerlink" title="三、ctypes模块的基本概念"></a>三、ctypes模块的基本概念</h1><ul>
+<h2 id="三、ctypes模块的基本概念"><a href="#三、ctypes模块的基本概念" class="headerlink" title="三、ctypes模块的基本概念"></a>三、ctypes模块的基本概念</h2><ul>
 <li><p>ctypes简化了动态库的调用过程，支持复杂的C数据类型，提供低级函数。使用ctypes模块时，只要遵守函数调用约定，即可直接调用操作系统提供的API<br><img src="https://www.hualigs.cn/image/60534b297553e.jpg" alt=""></p>
 </li>
 <li><p>由于本地库与Python的函数调用方式、数据类型等彼此不同，所以要熟悉基本的ctypes语法，准确实现二者间的映射</p>
@@ -511,7 +511,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="四、ctype基本用法"><a href="#四、ctype基本用法" class="headerlink" title="四、ctype基本用法"></a>四、ctype基本用法</h1><h3 id="1-加载DLL和获取函数"><a href="#1-加载DLL和获取函数" class="headerlink" title="1.加载DLL和获取函数"></a>1.加载DLL和获取函数</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> platform
+<h2 id="四、ctype基本用法"><a href="#四、ctype基本用法" class="headerlink" title="四、ctype基本用法"></a>四、ctype基本用法</h2><h3 id="1-加载DLL和获取函数"><a href="#1-加载DLL和获取函数" class="headerlink" title="1.加载DLL和获取函数"></a>1.加载DLL和获取函数</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> platform
 <span class="token keyword">from</span> ctypes <span class="token keyword">import</span><span class="token operator">*</span>
 <span class="token keyword">if</span> platform<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token string">'Windows'</span><span class="token punctuation">:</span>
     libc<span class="token operator">=</span>cdll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">'msvcrt.dll'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#系统C标准库动态链接文件</span>
@@ -681,7 +681,7 @@ WNDENUMPROC<span class="token operator">=</span>WINFUNCTYPE<span class="token pu
     <span class="token keyword">return</span> <span class="token boolean">True</span>
 user32<span class="token operator">=</span>windll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">'user32.dll'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#加载dll</span>
 user32<span class="token punctuation">.</span>EnumWindows<span class="token punctuation">(</span>WNDENUMPROC<span class="token punctuation">(</span>EnumWindowsProc<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#枚举所有屏幕上的顶层窗口，将窗口句柄传送给应用程序定义的回调函数</span></code></pre>
-<h1 id="五、键盘钩子"><a href="#五、键盘钩子" class="headerlink" title="五、键盘钩子"></a>五、键盘钩子</h1><ul>
+<h2 id="五、键盘钩子"><a href="#五、键盘钩子" class="headerlink" title="五、键盘钩子"></a>五、键盘钩子</h2><ul>
 <li>使用user32.dll提供的SetWindowsHookEx()函数，可以设置钩子。有消息到来或发生鼠标点击、键盘输入事件时，操作系统提供了中间拦截机制，这称为“钩子”。从功能上实现这种机制的函数称为钩子过程（回调函数）</li>
 <li>操作系统支持为一个钩子类型（鼠标点击、键盘输入等）设置多个钩子过程，并通过钩链管理链表</li>
 <li>每一个Hook都有一个与之相关联的指针列表，称之为钩子链表，由系统来维护。这个列表的指针指向指定的，应用程序定义的，被Hook子程调用的回调函数，也就是该钩子的各个处理子程</li>
@@ -805,7 +805,7 @@ pointer<span class="token operator">=</span>getFPTR<span class="token punctuatio
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"installed keyLogger"</span><span class="token punctuation">)</span>
 
 startKeyLog<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<h1 id="六、图片文件攻击"><a href="#六、图片文件攻击" class="headerlink" title="六、图片文件攻击"></a>六、图片文件攻击</h1><ul>
+<h2 id="六、图片文件攻击"><a href="#六、图片文件攻击" class="headerlink" title="六、图片文件攻击"></a>六、图片文件攻击</h2><ul>
 <li><p>向图片（BMP）文件中插入JavaScript脚本，实现对Cookie的读写操作</p>
 </li>
 <li><p>创建hello.bmp，用WinHex打开图片文件，可看到前2字节是“魔数”，用于标识位图文件。0x42、0x4D分别对应字母B和M的ASCII码。随后的4字节整数用于指示BMP文件的大小，单位为字节</p>
