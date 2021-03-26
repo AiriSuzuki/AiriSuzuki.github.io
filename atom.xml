@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-22T15:04:37.387Z</updated>
+  <updated>2021-03-26T07:54:23.771Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>调查取证</title>
+    <link href="http://yoursite.com/2021/03/26/diao-cha-qu-zheng/"/>
+    <id>http://yoursite.com/2021/03/26/diao-cha-qu-zheng/</id>
+    <published>2021-03-26T07:50:09.987Z</published>
+    <updated>2021-03-26T07:54:23.771Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;1.通过Windows注册表定位&lt;/li&gt;
+&lt;li&gt;2.回收站调查&lt;/li&gt;
+&lt;li&gt;3.审查PDF和DOC文件的元数据&lt;/li&gt;
+&lt;li&gt;4.从Exif元数据中提取GPS坐标&lt;/li&gt;
+&lt;li&gt;5.探究Skype结构&lt;/li&gt;
+&lt;li&gt;6.从火狐的数据库中枚举</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>网络攻击</title>
