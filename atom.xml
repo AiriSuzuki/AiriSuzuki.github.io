@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-26T07:54:23.771Z</updated>
+  <updated>2021-03-27T05:35:55.107Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python无线网络攻击</title>
+    <link href="http://yoursite.com/2021/03/27/python-wu-xian-wang-luo-gong-ji/"/>
+    <id>http://yoursite.com/2021/03/27/python-wu-xian-wang-luo-gong-ji/</id>
+    <published>2021-03-27T05:34:12.395Z</published>
+    <updated>2021-03-27T05:35:55.107Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;1.嗅探无线网络的私人信息&lt;/li&gt;
+&lt;li&gt;2.监听请求网络和识别隐藏的无线网络&lt;/li&gt;
+&lt;li&gt;3.控制无线无人机&lt;/li&gt;
+&lt;li&gt;4.确认Firesheep的使用&lt;/li&gt;
+&lt;li&gt;5.潜入蓝牙设备&lt;/li&gt;
+&lt;li&gt;6.利用蓝牙漏洞进行渗透&lt;/li&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>调查取证</title>
