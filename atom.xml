@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-27T05:35:55.107Z</updated>
+  <updated>2021-03-28T12:18:33.148Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图形用户界面GUI(一)</title>
+    <link href="http://yoursite.com/2021/03/28/tu-xing-yong-hu-jie-mian-gui-yi/"/>
+    <id>http://yoursite.com/2021/03/28/tu-xing-yong-hu-jie-mian-gui-yi/</id>
+    <published>2021-03-28T12:18:33.147Z</published>
+    <updated>2021-03-28T12:18:33.148Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、Python下常用GUI、使用优缺点对比&quot;&gt;&lt;a href=&quot;#一、Python下常用GUI、使用优缺点对比&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Python无线网络攻击</title>
@@ -329,11 +350,11 @@
   </entry>
   
   <entry>
-    <title>基于MATOLOTLIB模块的绘图</title>
-    <link href="http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/"/>
-    <id>http://yoursite.com/2021/03/09/ji-yu-matolotlib-mo-kuai-de-hui-tu/</id>
+    <title>图形用户界面GUI(三)--基于MATOLOTLIB模块的绘图</title>
+    <link href="http://yoursite.com/2021/03/09/tu-xing-yong-hu-jie-mian-gui-san-ji-yu-matolotlib-mo-kuai-de-hui-tu/"/>
+    <id>http://yoursite.com/2021/03/09/tu-xing-yong-hu-jie-mian-gui-san-ji-yu-matolotlib-mo-kuai-de-hui-tu/</id>
     <published>2021-03-09T12:10:16.711Z</published>
-    <updated>2021-03-13T10:51:03.522Z</updated>
+    <updated>2021-03-28T12:20:48.656Z</updated>
     
     
       
