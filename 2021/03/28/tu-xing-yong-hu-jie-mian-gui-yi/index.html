@@ -964,6 +964,133 @@ root<span class="token punctuation">[</span><span class="token string">'width'</
 root<span class="token punctuation">[</span><span class="token string">'height'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">50</span>
 app<span class="token operator">=</span>Application<span class="token punctuation">(</span>master<span class="token operator">=</span>root<span class="token punctuation">)</span>
 app<span class="token punctuation">.</span>mainloop<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h3 id="7-对话框"><a href="#7-对话框" class="headerlink" title="7.对话框"></a>7.对话框</h3><ul>
+<li>messagebox、filedialog、colorchooser、simpledialog</li>
+<li>通用消息对话框<ul>
+<li>askokcancel(title=None,message=None,**options): OK/Cancel对话框</li>
+<li>askquestion(title=None,message=None,**options): Yes/No问题对话框</li>
+<li>askretrycancel(title=None,message=None,**options): Retry/Cancel对话框</li>
+<li>askyesno(title=None,message=None,**options): Yes/No 是/否对话框</li>
+<li>showerror(title=None,message=None,**options): 错误消息对话框</li>
+<li>showinfo(title=None,message=None,**options): 信息消息对话框</li>
+<li>showwarning(title=None,message=None,**options): 警告消息对话框</li>
+</ul>
+</li>
+</ul>
+<p><strong>例22：OptionMenu通用消息对话框示例</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> tkinter<span class="token punctuation">.</span>messagebox <span class="token keyword">import</span> <span class="token operator">*</span>
+r1<span class="token operator">=</span>askokcancel<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'askokcancel'</span><span class="token punctuation">,</span>message<span class="token operator">=</span><span class="token string">'是否放弃修改的内容？'</span><span class="token punctuation">)</span>
+r2<span class="token operator">=</span>askquestion<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'askquestion'</span><span class="token punctuation">,</span>message<span class="token operator">=</span><span class="token string">'是否放弃修改的内容？'</span><span class="token punctuation">)</span>
+r3<span class="token operator">=</span>askyesno<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'askyesno'</span><span class="token punctuation">,</span>message<span class="token operator">=</span><span class="token string">'是否放弃修改的内容？'</span><span class="token punctuation">)</span>
+r4<span class="token operator">=</span>askretrycancel<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'askretrycancel'</span><span class="token punctuation">,</span>message<span class="token operator">=</span><span class="token string">'系统忙，是否重试？'</span><span class="token punctuation">)</span>
+showerror<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'showerror'</span><span class="token punctuation">,</span>message<span class="token operator">=</span><span class="token string">'无法连接！'</span><span class="token punctuation">)</span>
+showinfo<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'showinfo'</span><span class="token punctuation">,</span>message<span class="token operator">=</span><span class="token string">'连接成功！'</span><span class="token punctuation">)</span>
+showwarning<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'showwarning'</span><span class="token punctuation">,</span>message<span class="token operator">=</span><span class="token string">'磁盘碎片过多！'</span><span class="token punctuation">)</span></code></pre>
+<ul>
+<li>文件对话框filedialog<ul>
+<li>askdirectory(**options): 打开目录对话框，返回目录名</li>
+<li>askopenfile(**options): 打开文件对话框，返回打开的文件对象</li>
+<li>askopenfiles(**options): 打开文件对话框，返回打开的文件对象列表</li>
+<li>askopenfilename(**options): 打开文件对话框，返回打开的文件名</li>
+<li>askopenfilenames(**options): 打开文件对话框，返回打开的文件名列表</li>
+<li>asksaveasfile(mode=’w’,**options): 打开保存对话框，返回保存的文件名</li>
+<li>asksaveasfilename(mode=’w’,**options): 打开保存对话框，返回保存的文件名</li>
+</ul>
+</li>
+</ul>
+<p><strong>例23：文件对话框示例</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> tkinter <span class="token keyword">import</span> <span class="token operator">*</span>
+f<span class="token operator">=</span>askopenfilename<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'askopenfilename'</span><span class="token punctuation">,</span>filetypes<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'Python源文件'</span><span class="token punctuation">,</span><span class="token string">'.py'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">'网页文件'</span><span class="token punctuation">,</span><span class="token string">'.htm/html'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<ul>
+<li>颜色选择对话框colorchooser<ul>
+<li>askcolor(color=None,**options)    #打开颜色选择对话框</li>
+</ul>
+</li>
+</ul>
+<p><strong>例24：颜色对话框示例</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> tkinter<span class="token punctuation">.</span>colorchooser <span class="token keyword">import</span> <span class="token operator">*</span>
+c<span class="token operator">=</span>askcolor<span class="token punctuation">(</span>color<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span>title<span class="token operator">=</span><span class="token string">'askcolor'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#((0.0,0.0,255.99609375),'#0000ff)</span></code></pre>
+<ul>
+<li>简单对话框simpledialog</li>
+</ul>
+<p><strong>例25：简单对话框示例</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> tkinter <span class="token keyword">import</span> <span class="token operator">*</span>
+root<span class="token operator">=</span>Tk<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> tkinter<span class="token punctuation">.</span>simpledialog <span class="token keyword">import</span> <span class="token operator">*</span>
+i<span class="token operator">=</span>askinteger<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'请输入'</span><span class="token punctuation">,</span>prompt<span class="token operator">=</span><span class="token string">'请输入整数:'</span><span class="token punctuation">,</span>initialvalue<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+f<span class="token operator">=</span>askfloat<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'请输入'</span><span class="token punctuation">,</span>prompt<span class="token operator">=</span><span class="token string">'请输入实数:'</span><span class="token punctuation">)</span>
+s<span class="token operator">=</span>askstring<span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'请输入'</span><span class="token punctuation">,</span>prompt<span class="token operator">=</span><span class="token string">'请输入字符串:'</span><span class="token punctuation">)</span></code></pre>
+<p><strong>例26：通用简单对话框示例</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> tkinter <span class="token keyword">import</span> <span class="token operator">*</span>
+root<span class="token operator">=</span>Tk<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> tkinter<span class="token punctuation">.</span>simpledialog <span class="token keyword">import</span> <span class="token operator">*</span>
+dlg<span class="token operator">=</span>SimpleDialog<span class="token punctuation">(</span>root<span class="token punctuation">,</span>text<span class="token operator">=</span><span class="token string">'继续？'</span><span class="token punctuation">,</span>buttons<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Yes'</span><span class="token punctuation">,</span><span class="token string">'No'</span><span class="token punctuation">,</span><span class="token string">'cancel'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>default<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#创建SimpleDialog组件 默认停在'Yes'按钮</span></code></pre>
+<h3 id="8-菜单和工具栏"><a href="#8-菜单和工具栏" class="headerlink" title="8.菜单和工具栏"></a>8.菜单和工具栏</h3><ul>
+<li>主菜单：提供窗体的菜单系统。通过单击可下拉出子菜单，选择命令可执行相关的操作。常用的主菜单通常包括：文件、编辑、视图、帮助等</li>
+<li>上下文菜单（也称为快捷菜单）：通过鼠标右击某对象而弹出的菜单，一般为与该对象相关的常用菜单命令。例如：剪切、复制、粘贴等</li>
+<li>工具栏：提供窗体的工具栏。通过单击工具栏上的图标，可以执行相关的操作</li>
+</ul>
+<p><strong>例27：主菜单示例</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> tkinter <span class="token keyword">as</span> tk
+<span class="token keyword">def</span> <span class="token function">f_print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    
+    tk<span class="token punctuation">.</span>messagebox<span class="token punctuation">.</span>showinfo<span class="token punctuation">(</span><span class="token string">'信息'</span><span class="token punctuation">,</span><span class="token string">'打印功能'</span><span class="token punctuation">)</span>
+root<span class="token operator">=</span>tk<span class="token punctuation">.</span>Tk<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建1个Tk根窗口组件root</span>
+<span class="token comment" spellcheck="true">#创建主菜单栏</span>
+menubar<span class="token operator">=</span>tk<span class="token punctuation">.</span>Menu<span class="token punctuation">(</span>root<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建主菜单栏menubar</span>
+<span class="token comment" spellcheck="true">#创建子菜单</span>
+menufile<span class="token operator">=</span>tk<span class="token punctuation">.</span>Menu<span class="token punctuation">(</span>menubar<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建菜单menufile</span>
+menuedit<span class="token operator">=</span>tk<span class="token punctuation">.</span>Menu<span class="token punctuation">(</span>menubar<span class="token punctuation">,</span>tearoff<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#默认tearoff=1，如果为0，子菜单可拖动</span>
+menuhelp<span class="token operator">=</span>tk<span class="token punctuation">.</span>Menu<span class="token punctuation">(</span>menubar<span class="token punctuation">,</span>tearoff<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+menuTest<span class="token operator">=</span>tk<span class="token punctuation">.</span>Menu<span class="token punctuation">(</span>menubar<span class="token punctuation">)</span>
+menubar<span class="token punctuation">.</span>add_cascade<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"File"</span><span class="token punctuation">,</span>menu<span class="token operator">=</span>menufile<span class="token punctuation">)</span>
+menubar<span class="token punctuation">.</span>add_cascade<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"Edit"</span><span class="token punctuation">,</span>menu<span class="token operator">=</span>menuedit<span class="token punctuation">)</span>
+menubar<span class="token punctuation">.</span>add_cascade<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"Help"</span><span class="token punctuation">,</span>menu<span class="token operator">=</span>menuhelp<span class="token punctuation">)</span>
+menubar<span class="token punctuation">.</span>add_cascade<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"菜单2"</span><span class="token punctuation">,</span>menu<span class="token operator">=</span>menuTest<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#添加菜单项</span>
+menufile<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'Open'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#添加菜单项</span>
+menufile<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'Save'</span><span class="token punctuation">)</span>
+menufile<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'Print'</span><span class="token punctuation">,</span>accelerator<span class="token operator">=</span><span class="token string">'^p'</span><span class="token punctuation">,</span>co
+menufile<span class="token punctuation">.</span>add_separator<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#添加分隔符</span>
+menufile<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'Exit'</span><span class="token punctuation">)</span>
+menuedit<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'Cut'</span><span class="token punctuation">)</span>
+menuedit<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'Copy'</span><span class="token punctuation">)</span>
+menuedit<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'Paste'</span><span class="token punctuation">)</span>
+menuhelp<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'About'</span><span class="token punctuation">)</span>
+menuTest<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"菜单项1"</span><span class="token punctuation">)</span>
+menuTest<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"菜单项2"</span><span class="token punctuation">)</span>
+menuTest<span class="token punctuation">.</span>add_separator<span class="token punctuation">(</span><span class="token punctuation">)</span>
+menuTest<span class="token punctuation">.</span>add_checkbutton<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"复选框菜单项1"</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#添加复选框</span>
+menuTest<span class="token punctuation">.</span>add_checkbutton<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"复选框菜单项2"</span><span class="token punctuation">)</span>
+menuTest<span class="token punctuation">.</span>add_separator<span class="token punctuation">(</span><span class="token punctuation">)</span>
+menuTest<span class="token punctuation">.</span>add_radiobutton<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"单选按钮菜单项1"</span><span class="token punctuation">)</span>
+menuTest<span class="token punctuation">.</span>add_radiobutton<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"单选按钮菜单项2"</span><span class="token punctuation">)</span>
+menusub<span class="token operator">=</span>tk<span class="token punctuation">.</span>Menu<span class="token punctuation">(</span>menuTest<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建子菜单</span>
+menuTest<span class="token punctuation">.</span>add_cascade<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"子菜单"</span><span class="token punctuation">,</span>menu<span class="token operator">=</span>menusub<span class="token punctuation">)</span>
+menusub<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"子菜单项1"</span><span class="token punctuation">)</span>
+menusub<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"子菜单项2"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#附加主菜单到根窗口</span>
+root<span class="token punctuation">[</span><span class="token string">'menu'</span><span class="token punctuation">]</span><span class="token operator">=</span>menubar    <span class="token comment" spellcheck="true">#附加主菜单到根窗口</span>
+root<span class="token punctuation">.</span>mainloop<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><strong>例28：上下文菜单示例</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> tkinter <span class="token keyword">as</span> tk
+<span class="token keyword">def</span> <span class="token function">popup</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    menubar<span class="token punctuation">.</span>post<span class="token punctuation">(</span>event<span class="token punctuation">.</span>x_root<span class="token punctuation">,</span>event<span class="token punctuation">.</span>y_root<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#鼠标右键位置显示菜单</span>
+root<span class="token operator">=</span>tk<span class="token punctuation">.</span>Tk<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建1个Tk根窗口组件root</span>
+<span class="token comment" spellcheck="true">#创建菜单</span>
+menubar<span class="token operator">=</span>tk<span class="token punctuation">.</span>Menu<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+menubar<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"Font"</span><span class="token punctuation">)</span>
+menuedit<span class="token operator">=</span>tk<span class="token punctuation">.</span>Menu<span class="token punctuation">(</span>menubar<span class="token punctuation">,</span>tearoff<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+menubar<span class="token punctuation">.</span>add_cascade<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"Edit"</span><span class="token punctuation">,</span>menu<span class="token operator">=</span>menuedit<span class="token punctuation">)</span>
+menuedit<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"Copy"</span><span class="token punctuation">)</span>
+menuedit<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"Cut"</span><span class="token punctuation">)</span>
+menuedit<span class="token punctuation">.</span>add_command<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">"Paste"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#创建界面</span>
+textEdit<span class="token operator">=</span>tk<span class="token punctuation">.</span>Text<span class="token punctuation">(</span>root<span class="token punctuation">,</span>width<span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">,</span>height<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#创建Text组件</span>
+textEdit<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+root<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token string">'&lt;Button-3>'</span><span class="token punctuation">,</span>popup<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#绑定事件</span>
+<span class="token comment" spellcheck="true">#附加主菜单到根窗口(没有实现)</span>
+root<span class="token punctuation">.</span>mainloop<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>3/28/2021 8:18:20 PM </p>
 
                 
@@ -1198,18 +1325,17 @@ app<span class="token punctuation">.</span>mainloop<span class="token punctuatio
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/28/tu-xing-yong-hu-jie-mian-gui-yi/">
+                <a href="/2021/03/31/tu-xing-yong-hu-jie-mian-gui-er/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="图形用户界面GUI(一)">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="图形用户界面GUI（二）">
                         
-                        <span class="card-title">图形用户界面GUI(一)</span>
+                        <span class="card-title">图形用户界面GUI（二）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1219,9 +1345,9 @@ app<span class="token punctuation">.</span>mainloop<span class="token punctuatio
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1230,7 +1356,6 @@ app<span class="token punctuation">.</span>mainloop<span class="token punctuatio
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>

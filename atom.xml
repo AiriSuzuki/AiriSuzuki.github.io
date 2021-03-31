@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-28T12:18:33.148Z</updated>
+  <updated>2021-03-31T12:16:00.476Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>图形用户界面GUI（二）</title>
+    <link href="http://yoursite.com/2021/03/31/tu-xing-yong-hu-jie-mian-gui-er/"/>
+    <id>http://yoursite.com/2021/03/31/tu-xing-yong-hu-jie-mian-gui-er/</id>
+    <published>2021-03-31T12:08:31.193Z</published>
+    <updated>2021-03-31T12:16:00.476Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、Python绘图模块概述&quot;&gt;&lt;a href=&quot;#一、Python绘图模块概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>图形用户界面GUI(一)</title>
     <link href="http://yoursite.com/2021/03/28/tu-xing-yong-hu-jie-mian-gui-yi/"/>
     <id>http://yoursite.com/2021/03/28/tu-xing-yong-hu-jie-mian-gui-yi/</id>
     <published>2021-03-28T12:18:33.147Z</published>
-    <updated>2021-03-28T12:18:33.148Z</updated>
+    <updated>2021-03-31T12:14:10.880Z</updated>
     
     
       
