@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Airi Suzuki" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 4.2.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Airi Suzuki" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
@@ -521,7 +521,316 @@ fclose($f);
 
 <p>查看源码，点击/u/x.php即可得到flag。<br>这里附上PHP四种标记风格链接<a href="https://blog.csdn.net/qq_35085863/article/details/76714367" target="_blank" rel="noopener">https://blog.csdn.net/qq_35085863/article/details/76714367</a></p>
 <p><img src="https://www.hualigs.cn/image/60f1b218e6bf0.jpg" alt=""></p>
-<p>7/15/2021 8:55:34 PM</p>
+<h2 id="5、Web-Code"><a href="#5、Web-Code" class="headerlink" title="5、Web Code"></a>5、Web Code</h2><p>题目内容：<br>考脑洞，你能过么？</p>
+<p><img src="https://www.hualigs.cn/image/6146719812ad6.jpg" alt=""></p>
+<ol>
+<li><p>看见一张图片(穹妹yyds!)，以为是图片隐写，用隐写工具打开，没发现什么特别的东西</p>
+</li>
+<li><p>查看网页源代码（view-source:<a href="http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/index.php?jpg=hei.jpg），发现图片经过了base64编码，将其解码，不成功" target="_blank" rel="noopener">http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/index.php?jpg=hei.jpg），发现图片经过了base64编码，将其解码，不成功</a></p>
+</li>
+</ol>
+<p><img src="https://www.hualigs.cn/image/614672c8f2cf0.jpg" alt=""></p>
+<ol start="3">
+<li>发现题目链接可能存在文件读取。于是尝试输入index.php，即view-source:<a href="http://4c761be0a54f491c86c03f3ff1555b6d8645cd8e72d144ac.game.ichunqiu.com/index.php?jpg=index.php" target="_blank" rel="noopener">http://4c761be0a54f491c86c03f3ff1555b6d8645cd8e72d144ac.game.ichunqiu.com/index.php?jpg=index.php</a><br>再次将src进行base64解码。得到一段php代码：</li>
+</ol>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span>?php
+
+<span class="token operator">/</span><span class="token operator">**</span>
+
+ <span class="token operator">*</span> Created by PhpStorm<span class="token punctuation">.</span>
+
+ <span class="token operator">*</span> Date<span class="token punctuation">:</span> <span class="token number">2015</span><span class="token operator">/</span><span class="token number">11</span><span class="token operator">/</span><span class="token number">16</span>
+
+ <span class="token operator">*</span> Time<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">31</span>
+
+ <span class="token operator">*</span><span class="token operator">/</span>
+
+header<span class="token punctuation">(</span><span class="token string">'content-type:text/html;charset=utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>! isset<span class="token punctuation">(</span>$_GET<span class="token punctuation">[</span><span class="token string">'jpg'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    header<span class="token punctuation">(</span><span class="token string">'Refresh:0;url=./index.php?jpg=hei.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+$file <span class="token operator">=</span> $_GET<span class="token punctuation">[</span><span class="token string">'jpg'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+echo <span class="token string">'&lt;title>file:'</span><span class="token punctuation">.</span>$file<span class="token punctuation">.</span><span class="token string">'&lt;/title>'</span><span class="token punctuation">;</span>
+
+$file <span class="token operator">=</span> preg_replace<span class="token punctuation">(</span><span class="token string">"/[^a-zA-Z0-9.]+/"</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">,</span> $file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+$file <span class="token operator">=</span> str_replace<span class="token punctuation">(</span><span class="token string">"config"</span><span class="token punctuation">,</span><span class="token string">"_"</span><span class="token punctuation">,</span> $file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+$txt <span class="token operator">=</span> base64_encode<span class="token punctuation">(</span>file_get_contents<span class="token punctuation">(</span>$file<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+
+echo <span class="token string">"&lt;img src='data:image/gif;base64,"</span><span class="token punctuation">.</span>$txt<span class="token punctuation">.</span><span class="token string">"'>&lt;/img>"</span><span class="token punctuation">;</span>
+
+
+
+<span class="token operator">/</span><span class="token operator">*</span>
+
+ <span class="token operator">*</span> Can you find the flag file?
+
+ <span class="token operator">*</span>
+
+ <span class="token operator">*</span><span class="token operator">/</span>
+
+
+
+?<span class="token operator">></span>
+</code></pre>
+<ol start="4">
+<li>发现了Created by PhpStorm。</li>
+</ol>
+<p>phpstorm是php代码的集成开发环境，下载phpstorm，并新建一个项目，会发现在项目文件夹里面会生成一个.idea文件，它存储了项目的配置文件，打开.idea文件可以发现misc.xml,modules.xml,workspace.xml文件。</p>
+<ol start="5">
+<li>由于刚才解码得到的php代码说了这段代码是在phpstorm中创建的，因此该项目文件一定会生成一个.idea文件。</li>
+</ol>
+<p>因此url输入：view-source:b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/.idea/workspace.xml</p>
+<p>打开发现了该xml文件中的：</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span>option value<span class="token operator">=</span><span class="token string">"$PROJECT_DIR$/x.php"</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span>option value<span class="token operator">=</span><span class="token string">"$PROJECT_DIR$/config.php"</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span>option value<span class="token operator">=</span><span class="token string">"$PROJECT_DIR$/fl3g_ichuqiu.php"</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<p>说明该项目还生成了x.php，config.php，fl3g_ichuqiu.php文件</p>
+<ol start="6">
+<li>输入url:view-source:<a href="http://4c761be0a54f491c86c03f3ff1555b6d8645cd8e72d144ac.game.ichunqiu.com/x.php" target="_blank" rel="noopener">http://4c761be0a54f491c86c03f3ff1555b6d8645cd8e72d144ac.game.ichunqiu.com/x.php</a></li>
+</ol>
+<p>显示：404 not found</p>
+<p>输入url:view-source:<a href="http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/config.php" target="_blank" rel="noopener">http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/config.php</a></p>
+<p>显示：空白</p>
+<p>输入url:view-source:<a href="http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/fl3g_ichuqiu.php" target="_blank" rel="noopener">http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/fl3g_ichuqiu.php</a></p>
+<p>显示：╮(╯▽╰)╭</p>
+<p>输入url:view-source:<a href="http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/index.php?jpg=xfl3g_ichuqiu.php" target="_blank" rel="noopener">http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/index.php?jpg=xfl3g_ichuqiu.php</a></p>
+<p>显示：<title>file:xfl3g_ichuqiu.php</title><img src="data:image/gif;base64,"></p>
+<p>显然，base64编码内容被过滤了</p>
+<ol start="7">
+<li>用config替换_，输入url:view-source:<a href="http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/?jpg=fl3gconfigichuqiu.php" target="_blank" rel="noopener">http://b26751c3a47c4cc5bf2a7dbcb4d9625e8d25cd361cbd4944.changame.ichunqiu.com/?jpg=fl3gconfigichuqiu.php</a></li>
+</ol>
+<p>显示了base64编码的结果。将其进行解码得到一段php代码，是关于http cookie的加密与解密：</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span>?php
+
+<span class="token operator">/</span><span class="token operator">**</span>
+
+ <span class="token operator">*</span> Created by PhpStorm<span class="token punctuation">.</span>
+
+ <span class="token operator">*</span> Date<span class="token punctuation">:</span> <span class="token number">2015</span><span class="token operator">/</span><span class="token number">11</span><span class="token operator">/</span><span class="token number">16</span>
+
+ <span class="token operator">*</span> Time<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">31</span>
+
+ <span class="token operator">*</span><span class="token operator">/</span>
+
+error_reporting<span class="token punctuation">(</span>E_ALL <span class="token operator">|</span><span class="token operator">|</span> <span class="token operator">~</span>E_NOTICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+include<span class="token punctuation">(</span><span class="token string">'config.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">//</span>获取length位数的随机字符串
+
+function random<span class="token punctuation">(</span>$length<span class="token punctuation">,</span> $chars <span class="token operator">=</span> <span class="token string">'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz'</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">{</span>
+
+    $hash <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+    $max <span class="token operator">=</span> strlen<span class="token punctuation">(</span>$chars<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span>$i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> $i <span class="token operator">&lt;</span> $length<span class="token punctuation">;</span> $i<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        $hash <span class="token punctuation">.</span><span class="token operator">=</span> $chars<span class="token punctuation">[</span>mt_rand<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> $max<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> $hash<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+
+
+<span class="token operator">//</span>加密过程，txt是明文，key是秘钥
+
+function encrypt<span class="token punctuation">(</span>$txt<span class="token punctuation">,</span>$key<span class="token punctuation">)</span>
+
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span>$i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>$i<span class="token operator">&lt;</span>strlen<span class="token punctuation">(</span>$txt<span class="token punctuation">)</span><span class="token punctuation">;</span>$i<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+
+
+        $tmp <span class="token punctuation">.</span><span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>$txt<span class="token punctuation">[</span>$i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span><span class="token operator">//</span>txt内容的ascii码增加<span class="token number">10</span>
+
+    $txt <span class="token operator">=</span> $tmp<span class="token punctuation">;</span>
+
+    $rnd<span class="token operator">=</span>random<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">//</span>取<span class="token number">4</span>位随机字符
+
+    $key<span class="token operator">=</span>md5<span class="token punctuation">(</span>$rnd<span class="token punctuation">.</span>$key<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">//</span>随机字符与秘钥进行拼接得到新的秘钥
+
+    $s<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span>$i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>$i<span class="token operator">&lt;</span>strlen<span class="token punctuation">(</span>$txt<span class="token punctuation">)</span><span class="token punctuation">;</span>$i<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>$s <span class="token operator">==</span> <span class="token number">32</span><span class="token punctuation">)</span> $s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        $ttmp <span class="token punctuation">.</span><span class="token operator">=</span> $txt<span class="token punctuation">[</span>$i<span class="token punctuation">]</span> <span class="token operator">^</span> $key<span class="token punctuation">[</span><span class="token operator">+</span><span class="token operator">+</span>$s<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token operator">//</span>将明文与key按位进行异或，key的长度最长为<span class="token number">32</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> base64_encode<span class="token punctuation">(</span>$rnd<span class="token punctuation">.</span>$ttmp<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">//</span>将随机字符与异或后的结果进行字符串拼接，然后进行base64加密，得到密文
+
+<span class="token punctuation">}</span>
+
+
+
+<span class="token operator">//</span>解密过程，txt是密文，key是秘钥
+
+function decrypt<span class="token punctuation">(</span>$txt<span class="token punctuation">,</span>$key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    $txt<span class="token operator">=</span>base64_decode<span class="token punctuation">(</span>$txt<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">//</span>将密文进行base64解码
+
+    $rnd <span class="token operator">=</span> substr<span class="token punctuation">(</span>$txt<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">//</span>取出解码后的密文的前四位作为随机数字符串
+
+    $txt <span class="token operator">=</span> substr<span class="token punctuation">(</span>$txt<span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">//</span>从第<span class="token number">5</span>位开始的内容为真正的密文
+
+
+
+    $key<span class="token operator">=</span>md5<span class="token punctuation">(</span>$rnd<span class="token punctuation">.</span>$key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">//</span>随机字符串与秘钥进行拼接得到新的秘钥
+
+
+
+    $s<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span>$i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>$i<span class="token operator">&lt;</span>strlen<span class="token punctuation">(</span>$txt<span class="token punctuation">)</span><span class="token punctuation">;</span>$i<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>$s <span class="token operator">==</span> <span class="token number">32</span><span class="token punctuation">)</span> $s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        $tmp <span class="token punctuation">.</span><span class="token operator">=</span> $txt<span class="token punctuation">[</span>$i<span class="token punctuation">]</span><span class="token operator">^</span>$key<span class="token punctuation">[</span><span class="token operator">+</span><span class="token operator">+</span>$s<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token operator">//</span>将密文与秘钥进行异或得到tmp
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span>$i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>$i<span class="token operator">&lt;</span>strlen<span class="token punctuation">(</span>$tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>$i<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        $tmp1 <span class="token punctuation">.</span><span class="token operator">=</span> chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>$tmp<span class="token punctuation">[</span>$i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">//</span>将tmp的ascii码减<span class="token number">10</span>得到明文
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> $tmp1<span class="token punctuation">;</span>  <span class="token operator">//</span>明文
+
+<span class="token punctuation">}</span>
+
+$username <span class="token operator">=</span> decrypt<span class="token punctuation">(</span>$_COOKIE<span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>$key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">//</span>将HTTP Cookie方式传递的user变量作为密文，与秘钥进行解密
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>$username <span class="token operator">==</span> <span class="token string">'system'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>   <span class="token operator">//</span>如果解密出的结果为system，则显示flag
+
+    echo $flag<span class="token punctuation">;</span>
+
+
+
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>    <span class="token operator">//</span>如果解密出的结果不是system，则向客户端发送一个http cookie，cookie名称为user变量，cookie的值为guest与秘钥加密的结果，并显示一个表情
+
+    setcookie<span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span>encrypt<span class="token punctuation">(</span><span class="token string">'guest'</span><span class="token punctuation">,</span>$key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    echo <span class="token string">"a??(a?ˉa??a?°)a?-"</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+?<span class="token operator">></span>
+
+
+
+<span class="token operator">//</span>获取flag的思路：要获取flag就要获取key，使得key与$_COOKIE<span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span>的解密结果为system。
+
+<span class="token operator">//</span>获取key的思路：通过浏览器向服务器请求“抱歉”表情界面的url，服务器就会向浏览器返回一个固定的cookie值，
+
+<span class="token operator">//</span>即：encrypt<span class="token punctuation">(</span><span class="token string">'guest'</span><span class="token punctuation">,</span>$key<span class="token punctuation">)</span>，则cookie值就是明文“guest”与key<span class="token punctuation">(</span><span class="token number">5</span>位<span class="token punctuation">)</span>加密的结果<span class="token punctuation">(</span>即guest与key异或得到cookie，那么guest与cookie异或可以得到key<span class="token punctuation">)</span>。
+
+<span class="token operator">//</span>得到<span class="token number">5</span>位的key后，可以爆破第六位的key，只要用得到的<span class="token number">5</span>位key连接上构造的第六位key<span class="token punctuation">,</span>与“system”进行加密得到的user变量的cookie值去请求相应的url，
+
+<span class="token operator">//</span>通过服务器反馈的内容含有“flag”关键字符，则说明构造的第六位key值正确，从而可以得到六位的key以及flag的内容。</code></pre>
+<ol start="8">
+<li>根据代码原理，利用python脚本(code.py)进行keys秘钥的爆破,获取flag为：flag{e4ff6799-c79c-4d50-828d-d8164d92631b}。</li>
+</ol>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># _*_ coding: utf-8 _*</span>
+
+<span class="token keyword">import</span> requests
+
+<span class="token keyword">import</span> string
+
+<span class="token keyword">from</span> base64 <span class="token keyword">import</span> <span class="token operator">*</span>
+
+
+
+<span class="token comment" spellcheck="true">#返回“抱歉”表情的url</span>
+
+url<span class="token operator">=</span><span class="token string">"http://4c761be0a54f491c86c03f3ff1555b6d8645cd8e72d144ac.game.ichunqiu.com/fl3g_ichuqiu.php"</span>
+
+<span class="token comment" spellcheck="true">#请求该url，获取服务器返回的user变量的cookie值,即encrypt('guest',$key)</span>
+
+cookie<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>cookies<span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#将密文cookie进行base64解码</span>
+
+txt<span class="token operator">=</span>b64decode<span class="token punctuation">(</span>cookie<span class="token punctuation">)</span>
+
+rnd<span class="token operator">=</span>txt<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#密文的前4位字符为随机字符</span>
+
+ttmp<span class="token operator">=</span>txt<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#ttmp为'guest'与key进行异或的密文值,ttmp与'guest'的位数一样，为5位</span>
+
+keys<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token string">'xxxxxx'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#六位key的初始字符串</span>
+
+guest<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token string">'guest'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#guest明文内容</span>
+
+system<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token string">'system'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>guest<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    guest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>guest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#guest明文的ascii码加10，为guest加密做准备(encrypt('guest',$key))</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>guest<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    keys<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>ttmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">^</span>ord<span class="token punctuation">(</span>guest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#ttmp为'guest'与key进行异或的密文值,则ttmp与guest异或为keys</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    system<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>system<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#system的ascii码加10，为system加密做准备</span>
+
+letters<span class="token operator">=</span><span class="token string">'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz'</span><span class="token comment" spellcheck="true">#第六位key的爆破字符</span>
+
+ttmp_new<span class="token operator">=</span><span class="token string">''</span> <span class="token comment" spellcheck="true">#system与keys的异或值</span>
+
+cookie_system<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+str<span class="token operator">=</span><span class="token string">''</span>
+
+<span class="token keyword">for</span> ch <span class="token keyword">in</span> letters<span class="token punctuation">:</span>
+
+    keys<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">=</span>ch
+
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>system<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        ttmp_new <span class="token operator">+=</span>chr<span class="token punctuation">(</span>ord<span class="token punctuation">(</span>system<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">^</span>ord<span class="token punctuation">(</span>keys<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    str<span class="token operator">=</span>rnd<span class="token operator">+</span>ttmp_new <span class="token comment" spellcheck="true">#随机字符与异或结果进行拼接</span>
+
+    cookie_system<span class="token punctuation">.</span>append<span class="token punctuation">(</span>b64encode<span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#将拼接结果进行base64加密，得到flag界面的cookie值，并将其填充到字典cookie_system中</span>
+
+    ttmp_new<span class="token operator">=</span><span class="token string">''</span><span class="token comment" spellcheck="true">#爆破一次，就将ttmp_new初始化一次</span>
+
+<span class="token comment" spellcheck="true">#</span>
+
+<span class="token comment" spellcheck="true"># print cookie_system #输出所有可能的key爆破得到的cookie值</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> cookie_system<span class="token punctuation">:</span>
+
+    cookies<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'user'</span><span class="token punctuation">:</span>i<span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#cookie变量为user,值为i</span>
+
+    res<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>cookies<span class="token operator">=</span>cookies<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#用所有的cookie值去尝试访问服务器，得到的反馈为res</span>
+
+    <span class="token keyword">if</span> <span class="token string">'flag'</span> <span class="token keyword">in</span> res<span class="token punctuation">.</span>content<span class="token punctuation">:</span><span class="token comment" spellcheck="true">#如果反馈的内容含有‘flag’关键字，则说明请求的cookie正确，即keys爆破成功</span>
+
+        <span class="token comment" spellcheck="true">#print  cookie_system[i] #输出正确的cookie值</span>
+
+        <span class="token keyword">print</span> res<span class="token punctuation">.</span>content <span class="token comment" spellcheck="true">#输出服务器反馈的内容，即flag</span></code></pre>
+<p>9/19/2021 12:25:52 AM </p>
 
                 
             </div>
