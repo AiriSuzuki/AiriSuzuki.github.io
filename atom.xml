@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-09-18T23:39:41.912Z</updated>
+  <updated>2021-09-19T13:48:13.014Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CTF-Web(2)</title>
+    <link href="http://yoursite.com/2021/09/19/ctf-web-2/"/>
+    <id>http://yoursite.com/2021/09/19/ctf-web-2/</id>
+    <published>2021-09-19T13:46:08.370Z</published>
+    <updated>2021-09-19T13:48:13.014Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1、Web-YeserCMS&quot;&gt;&lt;a href=&quot;#1、Web-YeserCMS&quot; class=&quot;headerlink&quot; title=&quot;1、Web YeserCMS&quot;&gt;&lt;/a&gt;1、Web</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>CTF-Web(1)</title>
